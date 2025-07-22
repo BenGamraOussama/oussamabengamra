@@ -1,0 +1,74 @@
+📧 TEMPLATE EMAILJS EXEMPLE
+==========================
+
+Copiez ce template dans votre dashboard EmailJS :
+
+SUJET DE L'EMAIL :
+-----------------
+Nouveau message de contact - {{from_name}}
+
+CORPS DE L'EMAIL :
+-----------------
+Bonjour Oussama,
+
+Vous avez reçu un nouveau message via le formulaire de contact de votre portfolio :
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 INFORMATIONS DU CONTACT
+   Nom complet : {{from_name}}
+   Email : {{from_email}}
+   Téléphone : {{phone}}
+   Service demandé : {{service}}
+
+💬 MESSAGE
+{{message}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 Date de réception : {{date}}
+🌐 Source : Portfolio Contact Form
+
+---
+Pour répondre à ce message, utilisez directement l'email : {{from_email}}
+
+Cordialement,
+Système automatisé du portfolio
+
+VARIABLES UTILISÉES :
+--------------------
+- {{from_name}} : Nom complet du contact (prénom + nom)
+- {{from_email}} : Email du contact
+- {{phone}} : Téléphone du contact (optionnel)
+- {{service}} : Service demandé (optionnel)
+- {{message}} : Message du contact
+- {{date}} : Date et heure de réception
+
+VARIABLES ENVOYÉES PAR LE CODE :
+-------------------------------
+✅ from_name: firstName + ' ' + lastName
+✅ from_email: email
+✅ phone: phone
+✅ service: service  
+✅ message: message
+✅ date: timeString (format français)
+
+CONFIGURATION EMAILJS :
+----------------------
+1. Créez un compte sur https://www.emailjs.com/
+2. Ajoutez un service email (Gmail, Outlook, etc.)
+3. Créez un nouveau template avec le contenu ci-dessus
+4. Copiez les clés dans email.config.ts :
+   - Service ID
+   - Template ID
+   - Public Key
+
+EXEMPLE DE CONFIGURATION :
+-------------------------
+export const emailConfig = {
+  serviceId: 'service_abc123',
+  templateId: 'template_xyz789', 
+  publicKey: 'abc123def456',
+  toEmail: 'oussama.bengamra@esprit.tn',
+  serviceName: 'Portfolio Contact Form'
+};

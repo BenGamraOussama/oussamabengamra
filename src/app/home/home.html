@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en" class="dark overflow-x-hidden">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Place favicon.ico in the root directory -->
+</head>
+
+<body class="font-sora dark:bg-dark-color overflow-x-hidden relative">
+  <!-- Preloader Area Start -->
+  <div class="preloader">
+    <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+    </svg>
+
+    <div class="preloader-heading">
+      <div class="load-text">
+        <span>L</span>
+        <span>o</span>
+        <span>a</span>
+        <span>d</span>
+        <span>i</span>
+        <span>n</span>
+        <span>g</span>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader Area End -->
+  <!-- theme controller -->
+  <div class="fixed top-[200px] lg:top-[300px] transition-all duration-300 right-[-50px] hover:right-0 z-4xl">
+    <button
+      class="theme-controller w-90px h-10 bg-200 bg-gradient-secondary hover:bg-[-100%] rounded-l-full text-whiteColor px-10px flex items-center transition-all duration-300 font-sora">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-10px w-5 block dark:hidden" viewBox="0 0 512 512">
+        <path
+          d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z"
+          fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path>
+      </svg>
+      <span class="text-base block dark:hidden">Dark</span>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="hidden mr-10px w-5 dark:block" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"
+          d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94">
+        </path>
+        <circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+          stroke-width="32"></circle>
+      </svg>
+      <span class="text-base hidden dark:block">Light</span>
+    </button>
+  </div>
+  <!-- start: Back To Top -->
+  <div class="progress-wrap" id="scrollUp">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <!-- header area  -->
+  <app-header></app-header>
+  <!-- sticky -->
+  
+  <div class="main-wrapper">
+    <!-- hero banner  -->
+    <section
+      class="hero-section relative pt-130px lg:pt-40 xl:pt-200px pb-10 md:pb-30px lg:pb-50px after:absolute after:top-0 after:right-0 after:w-322px after:h-308px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5% after:-mr-5% overflow-hidden">
+      <!-- intro tex -->
+      <div class="intro_text">
+        <svg viewBox="0 0 1320 300" class="overflow-hidden">
+          <text x="50%" y="50%" text-anchor="middle" class="animate-stroke">
+            HI
+          </text>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="hidded md:grid md:grid-cols-2 md:items-center gap-30px">
+          <div>
+            <h4
+              class="text-seondary-color dark:text-body-color text-size-22 md:text-size-25 lg:text-4xl lg:leading-1.5 font-bold mb-1.5 xl:mb-10px">
+              I am Oussama Ben Gamra
+            </h4>
+            <h1
+              class="text-size-35 md:text-size-38 lg:text-size-50 xl:text-6xl 2xl:text-size-65 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
+              Full-Stack Web <br />
+              Developer.
+            </h1>
+            <div class="flex md:hidden justify-center items-center my-30px">
+              <img src="img/hero/me.png" alt="banner image"
+                class="rounded-38px border-2 border-seondary-color hover:border-primary-color rotate-[4.29deg] hover:rotate-0 transition-all duration-300 max-w-[80%]" />
+            </div>
+            <p class="text-xl leading-1.5 text-primary-color-light dark:text-body-color max-w-540px">
+              I am a skilled full-stack developer from Tunisia with expertise in Java, Spring Boot, Angular, and modern web technologies. 
+              I create innovative solutions that connect people and deliver exceptional user experiences.
+            </p>
+            <!-- action and social -->
+            <div class="flex items-center gap-30px lg:gap-25px mt-5 flex-wrap lg:flex-nowrap md:mt-30px lg:mt-50px">
+              <div>
+                  <!-- Bouton principal -->
+                  <a href="/cv.pdf" download="Oussama_Ben_Gamra_CV.pdf" type="button" class="text-size-15 font-medium text-primary-color hover:text-body-color capitalize py-17px px-35px bg-200 bg-transparent hover:bg-primary-color rounded-full leading-1 border border-primary-color text-nowrap tracking-1px">
+                    Download CV
+                    <i class="flaticon-download ml-0.5 text-size-17"></i>
+                  </a>
+              </div>
+              <div>
+                <ul class="flex gap-x-5">
+                  <li>
+                    <a href="https://www.linkedin.com/in/oussama-ben-gamra"
+                      class="text-primary-color hover:text-body-color border border-primary-color w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-primary-color hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full" target="_blank"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/BenGamraOussama"
+                      class="text-primary-color hover:text-body-color border border-primary-color w-35px h-35px rounded-full flex items-center justify-center overflow-hidden relative z-0 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-full after:h-full after:scale-0 after:bg-primary-color hover:after:scale-105 after:transition-all after:duration-300 after:z-[-1] after:rounded-full" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="hidden md:flex md:justify-center md:items-center relative after:absolute after:bottom-0 after:left-0 after:w-220px after:h-220px after:blur-[150px] after:rounded-50% after:bg-gradient-circle after:-z-1 after:-mt-5% after:-mr-5%">
+            <img src="img/hero/me.png" alt="banner image"
+              class="rounded-38px border-2 border-seondary-color hover:border-primary-color rotate-[4.29deg] hover:rotate-0 transition-all duration-300" />
+          </div>
+        </div>
+      </div>
+      <!-- fanfact -->
+      <div class="funfact-area mt-60px xl:mt-70px 2xl:mt-30">
+        <div class="container">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-30px text-primary-color dark:text-body-color">
+            <div
+              class="funfact-item flex flex-wrap sm:flex-nowrap flex-col sm:flex-row justify-center lg:justify-start items-center gap-15px">
+              <div class="number text-size-45 md:text-size-55 xl:text-size-64 font-medium">
+                <span class="odometer !font-sora tracking-[0.04em]" data-count="2">0</span>
+              </div>
+              <div class="text">Years of <br />Experience</div>
+            </div>
+
+            <div
+              class="funfact-item flex flex-wrap sm:flex-nowrap flex-col sm:flex-row justify-center lg:justify-start items-center gap-15px">
+              <div class="number text-size-45 md:text-size-55 xl:text-size-64 font-medium">
+                <span class="odometer !font-sora tracking-[0.04em]" data-count="10">0</span>+
+              </div>
+              <div class="text">Projects <br />Completed</div>
+            </div>
+
+            <div
+              class="funfact-item flex flex-wrap sm:flex-nowrap flex-col sm:flex-row justify-center lg:justify-start items-center gap-15px">
+              <div class="number text-size-45 md:text-size-55 xl:text-size-64 font-medium">
+                <span class="odometer !font-sora tracking-[0.04em]" data-count="5">0</span>
+              </div>
+              <div class="text">Happy <br />Clients</div>
+            </div>
+
+            <div
+              class="funfact-item flex flex-wrap sm:flex-nowrap flex-col sm:flex-row justify-center lg:justify-start items-center gap-15px">
+              <div class="number text-size-45 md:text-size-55 xl:text-size-64 font-medium">
+                <span class="odometer !font-sora tracking-[0.04em]" data-count="3">0</span>
+              </div>
+              <div class="text">Technologies <br />Mastered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- services area -->
+    <section id="services">
+      <div class="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-30 overflow-x-hidden">
+        <div class="container">
+          <!-- section heading -->
+          <div class="text-center flex flex-col items-center mb-10 md:mb-50px">
+            <h2
+              class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px wow fadeInUp"
+              data-wow-delay=".3s">
+              My Quality Services
+            </h2>
+            <p class="text-primary-color-light dark:text-body-color max-w-700px wow fadeInUp" data-wow-delay=".4s">
+              We put your ideas and thus your wishes in the form of a unique
+              web project that inspires you and you customers.
+            </p>
+          </div>
+          <!-- services -->
+          <div class="services-widget relative">
+              <div
+              class="service-item current px-15px lg:px-30px border dark:border-0 dark:border-b border-body-color dark:border-seondary-color relative z-10 group wow fadeInUp"
+              data-wow-delay=".5s">
+              <a [routerLink]="['/service-details', 1]"
+                class="text-primary-color dark:text-white-color flex items-center gap-15px md:gap-5 flex-wrap md:flex-nowrap py-5 lg:py-30px group-hover:text-white">
+                <span
+                  class="text-xl w-full md:w-[calc(40%-10px)] flex flex-wrap lg:flex-nowrap items-center gap-10px md:gap-5">
+                  <b class="service-sl-num text-primary-color group-hover:text-white transition-all duration-300">01</b>
+                  <b class="text-xl md:text-size-25 lg:text-3xl">Full-Stack Development</b>
+                </span>
+
+                <span
+                  class="text-primary-color-light dark:text-body-color w-full md:w-[calc(45%-10px)] group-hover:text-white">
+                  End-to-end web application development using modern technologies like Java Spring Boot, Angular, and React.
+                </span>
+                <i
+                  class="flaticon-up-right-arrow text-size-15 md:text-xl text-primary-color group-hover:text-white-color absolute top-[20%] md:top-1/2 right-5 lg:right-[55px] transition-all duration-300"></i>
+              </a>
+            </div>
+              <div
+              class="service-item px-15px lg:px-30px border dark:border-0 dark:border-b border-body-color dark:border-seondary-color relative z-10 group wow fadeInUp"
+              data-wow-delay=".6s">
+              <a [routerLink]="['/service-details', 2]"
+                class="text-primary-color dark:text-white-color flex items-center gap-15px md:gap-5 flex-wrap md:flex-nowrap py-5 lg:py-30px group-hover:text-white">
+                <span
+                  class="text-xl w-full md:w-[calc(40%-10px)] flex flex-wrap lg:flex-nowrap items-center gap-10px md:gap-5">
+                  <b class="service-sl-num text-primary-color group-hover:text-white transition-all duration-300">02</b>
+                  <b class="text-xl md:text-size-25 lg:text-3xl">Cloud & DevOps</b>
+                </span>
+
+                <span
+                  class="text-primary-color-light dark:text-body-color w-full md:w-[calc(45%-10px)] group-hover:text-white">
+                  Scalable cloud infrastructure and DevOps automation with Docker, Kubernetes, and CI/CD tools to ensure fast, secure, and reliable deployments.
+                </span>
+                <i
+                  class="flaticon-up-right-arrow text-size-15 md:text-xl text-primary-color group-hover:text-white-color absolute top-[20%] lg:top-1/2 right-5 lg:right-[55px] transition-all duration-300"></i>
+              </a>
+            </div>
+              <div
+              class="service-item px-15px lg:px-30px border dark:border-0 dark:border-b border-body-color dark:border-seondary-color relative z-10 group wow fadeInUp"
+              data-wow-delay=".7s">
+              <a [routerLink]="['/service-details', 3]"
+                class="text-primary-color dark:text-white-color flex items-center gap-15px md:gap-5 flex-wrap md:flex-nowrap py-5 lg:py-30px group-hover:text-white">
+                <span
+                  class="text-xl w-full md:w-[calc(40%-10px)] flex flex-wrap lg:flex-nowrap items-center gap-10px md:gap-5">
+                  <b class="service-sl-num text-primary-color group-hover:text-white transition-all duration-300">03</b>
+                  <b class="text-xl md:text-size-25 lg:text-3xl">Artificial Intelligence</b>
+                </span>
+
+                <span
+                  class="text-primary-color-light dark:text-body-color w-full md:w-[calc(45%-10px)] group-hover:text-white">
+                    Intelligent systems powered by machine learning and deep learning, using frameworks like TensorFlow and PyTorch for real-time data analysis and smart decision-making.
+                </span>
+                <i
+                  class="flaticon-up-right-arrow text-size-15 md:text-xl text-primary-color group-hover:text-white-color absolute top-[20%] lg:top-1/2 right-5 lg:right-[55px] transition-all duration-300"></i>
+              </a>
+            </div>
+              <div
+              class="service-item px-15px lg:px-30px border dark:border-0 dark:border-b border-body-color dark:border-seondary-color relative z-10 group wow fadeInUp"
+              data-wow-delay=".8s">
+              <a [routerLink]="['/service-details', 4]"
+                class="text-primary-color dark:text-white-color flex items-center gap-15px md:gap-5 flex-wrap md:flex-nowrap py-5 lg:py-30px group-hover:text-white">
+                <span
+                  class="text-xl w-full md:w-[calc(40%-10px)] flex flex-wrap lg:flex-nowrap items-center gap-10px md:gap-5">
+                  <b class="service-sl-num text-primary-color group-hover:text-white transition-all duration-300">04</b>
+                  <b class="text-xl md:text-size-25 lg:text-3xl">API & Web Services Integration</b>
+                </span>
+
+                <span
+                  class="text-primary-color-light dark:text-body-color w-full md:w-[calc(45%-10px)] group-hover:text-white">
+                    Developing and integrating custom and third-party APIs to streamline workflows, automate data exchange, and enhance application capabilities with secure and scalable communication.
+                </span>
+                <i
+                  class="flaticon-up-right-arrow text-size-15 md:text-xl text-primary-color group-hover:text-white-color absolute top-[20%] lg:top-1/2 right-5 lg:right-[55px] transition-all duration-300"></i>
+              </a>
+            </div>
+            <!-- bg animation -->
+            <div class="active-bg wow fadeInUp hidden sm:block" data-wow-delay=".6s"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- portfolio area -->
+    <section id="portfolio">
+      <div class="pt-60px pb-30px md:pt-20 md:pb-60px lg:pt-100px lg:pb-20">
+        <div class="container">
+          <!-- section heading -->
+          <div class="text-center flex flex-col items-center mb-10 md:mb-50px">
+            <h2
+              class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px wow fadeInUp"
+              data-wow-delay=".3s">
+              My Recent Works
+            </h2>
+            <p class="text-primary-color-light dark:text-body-color max-w-700px wow fadeInUp" data-wow-delay=".4s">
+              We put your ideas and thus your wishes in the form of a unique
+              web project that inspires you and you customers.
+            </p>
+          </div>
+          <!-- portfolio -->
+          <div class="portfolio-filter">
+            <!-- controllers -->
+            <div class="flex items-center">
+              <div
+                class="button-group filter-button-group max-w-500 mx-auto inline-flex items-center justify-center bg-cream-light-color dark:bg-black rounded-full px-2 py-1 md:py-1.5 relative z-0 wow fadeInUp"
+                data-wow-delay=".5s">
+                <button data-filter="*"
+                  class="text-sm md:text-size-15 px-3 md:px-20px py-10px md:py-3 text-primary-color dark:text-white-color leading-1 active">
+                  All
+                </button>
+                <button data-filter=".web-app"
+                  class="text-sm md:text-size-15 px-3 md:px-20px py-10px md:py-3 text-primary-color dark:text-white-color leading-1">
+                  Web Apps
+                </button>
+                <button data-filter=".mobile-app"
+                  class="text-sm md:text-size-15 px-3 md:px-20px py-10px md:py-3 text-primary-color dark:text-white-color leading-1">
+                  Mobile Apps
+                </button>
+                <button data-filter=".ai"
+                  class="text-sm md:text-size-15 px-3 md:px-20px py-10px md:py-3 text-primary-color dark:text-white-color leading-1">
+                  AI/ML
+                </button>
+                <button data-filter=".uxui"
+                  class="text-sm md:text-size-15 px-3 md:px-20px py-10px md:py-3 text-primary-color dark:text-white-color leading-1">
+                  UX/UI
+                </button>
+                <div class="active-bg !-z-1"></div>
+              </div>
+            </div>
+
+          <!-- contents -->
+          <div class="portfolio-box mt-10 md:mt-50px wow fadeInUp" data-wow-delay=".6s">
+            <div class="portfolio-sizer"></div>
+            <div class="gutter-sizer"></div>
+            <div *ngFor="let project of projects"
+              class="portfolio-item {{project.category}} bg-primary-color-light px-15px pt-25px pb-0 lg:p-9 lg:pb-0 rounded-10px group relative float-left inline-flex">
+              <img [src]="project.image" [alt]="project.title" />
+              <div
+                class="absolute left-0 bottom-[15px] group-hover:bottom-5 translate-y-5 group-hover:translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible w-full group-hover: px-15px lg:px-5 transition-all duration-300">
+<a [routerLink]="['/portflio-details', project.id]" class="cursor-pointer text-white-color p-15px pr-30px lg:p-5 lg:pr-50px bg-gradient-primary rounded-15px w-full">
+
+  <span class="block text-xl md:text-size-25 lg:text-3xl font-bold mb-2 lg:mb-15px">
+    {{ project.title }}
+  </span>
+
+  <span class="block text-body-color">
+    {{ project.description }}
+  </span>
+  <i
+    class="flaticon-up-right-arrow text-size-15 md:text-xl text-primary-color group-hover:text-white-color absolute top-1/2 right-8 lg:right-[55px] -translate-y-1/2 rotate-[-360deg] group-hover:rotate-0 transition-all duration-300"></i>
+</a>
+              </div>
+            </div>
+             
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- experience area -->
+    <section id="resume">
+      <div class="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-30">
+        <div class="container">
+          <div class="experience grid grid-cols-1 md:grid-cols-2 gap-30px gap-y-50px">
+            <!-- experience single area -->
+            <div>
+              <div class="mb-10 md:mb-50px wow fadeInUp" data-wow-delay=".3s">
+                <h2
+                  class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
+                  <i class="flaticon-recommendation mr-2"></i> My Experience
+                </h2>
+              </div>
+              <!-- services -->
+              <div class="experience-wrapper flex flex-col gap-30px">
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInLeft"
+                  data-wow-delay=".4s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      Feb 2024 - Jun 2024
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Full-stack Developer Intern
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Designet, Nabeul, Tunisia
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInLeft"
+                  data-wow-delay=".5s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      Jun 2023 - Jul 2023
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      MERN-stack Developer Intern
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Centre National de l'Informatique, El-Omrane, Tunis
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInLeft"
+                  data-wow-delay=".6s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      2020 - 2023
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Web Development Technologies
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Institut supérieur des études technologique de siliana
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInLeft"
+                  data-wow-delay=".7s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      2024 - Present
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Learning & Development
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Continuous learning in .NET and advanced technologies
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- experience single area -->
+            <div>
+              <div class="mb-10 md:mb-50px wow fadeInUp" data-wow-delay=".4s">
+                <h2
+                  class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
+                  <i class="flaticon-graduation-cap mr-2"></i> My Education
+                </h2>
+              </div>
+              <!-- services -->
+              <div class="experience-wrapper flex flex-col gap-30px">
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInRight"
+                  data-wow-delay=".5s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      Sep 2024 - Present
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Software Engineering
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Ecole Supérieure Privée d'Ingénierie et de Technologies - ESPRIT
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInRight"
+                  data-wow-delay=".6s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      2020 - 2023
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Web Development Technologies
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Institut supérieur des études technologique de siliana
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInRight"
+                  data-wow-delay=".7s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      Apr 2025
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Python Essentials 1
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Cisco - Certification in Python Programming
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="px-15px md:px-30px py-5 bg-white-color dark:bg-primary-color-light rounded-20px relative z-0 group max-w-536px transition-all duration-500 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-20px wow fadeInRight"
+                  data-wow-delay=".8s">
+                  <div
+                    class="text-primary-color-light group-hover:text-white-color dark:text-white-color relative z-10 transition-all duration-300">
+                    <p
+                      class="text-primary-color group-hover:text-white transition-all duration-300 text-size-15 lg:text-xl font-extrabold mb-2">
+                      2024 - Present
+                    </p>
+                    <h4 class="text-lg md:text-xl lg:text-size-23 2xl:text-size-25 mb-2 uppercase">
+                      Continuous Learning
+                    </h4>
+                    <p
+                      class="text-primary-color-light dark:text-body-color group-hover:text-white-color transition-all duration-300">
+                      Self-study in advanced programming concepts and modern frameworks
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- skills area -->
+    <section id="skills">
+      <div class="pt-60px pb-60px md:pt-20 md:pb-60px lg:pt-100px lg:pb-20">
+        <div class="container">
+          <!-- section heading -->
+          <div class="text-center flex flex-col items-center mb-10 md:mb-50px">
+            <h2
+              class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
+              My Skills
+            </h2>
+            <p class="text-primary-color-light dark:text-body-color max-w-700px">
+              We put your ideas and thus your wishes in the form of a unique
+              web project that inspires you and you customers.
+            </p>
+          </div>
+          <!-- skills -->
+          <div class="skills">
+            <div class="flex flex-wrap items-center justify-center gap-5">
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".3s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/js.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    93%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">JavaScript</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".4s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/java.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    90%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">Java</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".5s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/angular.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    95%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">Angular</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".6s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/spring.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    95%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">Spring Boot</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".7s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/react.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    89%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">React</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".8s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/node.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    93%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">Node.js</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".8s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/mongodb.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    80%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">MongoDB</p>
+              </div>
+              <!-- skills single -->
+              <div class="max-w-180px w-full group wow fadeInUp" data-wow-delay=".8s">
+                <!-- contents -->
+                <div
+                  class="flex flex-col items-center py-25px px-15px md:pt-30px 2xl:pt-10 2xl:mb-30px rounded-25px bg-cream-light-color dark:bg-primary-color-light border border-transparent group-hover:border-primary-color group-hover:bg-seondary-color transition-all duration-500 mb-15px">
+                  <div class="mb-5 md:mb-30px mx-9 2xl:mx-44px w-60px flex flex-col justify-center items-center">
+                    <img
+                      class="grayscale-[90%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110 opacity-50 group-hover:opacity-100 w-60px"
+                      src="img/icons/postgres.png" alt="" />
+                  </div>
+                  <div
+                    class="text-xl text-gray-color-2 group-hover:text-primary-color transition-none duration-300 font-extrabold">
+                    80%
+                  </div>
+                </div>
+                <p class="text-primary-color text-center">PostgreSQL</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonials area -->
+    <section id="testimonials">
+      <div class="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-30">
+        <div class="container">
+          <div class="testimonials grid lg:grid-cols-12 gap-6">
+            <!-- section heading -->
+            <div class="lg:col-start-1 lg:col-span-5">
+              <div class="mb-5 md:mb-50px text-center lg:text-start wow fadeInUp" data-wow-delay=".3s">
+                <h2
+                  class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px wow fadeInLeft"
+                  data-wow-delay=".3s">
+                  My Client's Stories
+                </h2>
+                <p class="text-primary-color-light dark:text-body-color wow fadeInLeft" data-wow-delay=".4s">
+                  Empowering people in new a digital journey with my super
+                  services
+                </p>
+              </div>
+            </div>
+            <!-- testimonial single -->
+            <div class="lg:col-start-6 xl:col-start-7 lg:col-span-7 xl:col-span-6 wow fadeInRight overflow-hidden"
+              data-wow-delay=".5s">
+              <div class="owl-carousel testimonial-carousel">
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/1.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/1-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/1.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Tim Bailey</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      SEO Specialist, Theme Junction
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/2.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/2-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/2.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Brandon Fraser</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      Senior Software Dev, Cosmic Sport
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/1.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/1-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/1.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Tim Bailey</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      SEO Specialist, Theme Junction
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/2.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/2-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/2.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Brandon Fraser</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      Senior Software Dev, Cosmic Sport
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/1.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/1-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/1.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Tim Bailey</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      SEO Specialist, Theme Junction
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/2.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/2-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/2.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Brandon Fraser</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      Senior Software Dev, Cosmic Sport
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/1.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/1-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/1.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Tim Bailey</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      SEO Specialist, Theme Junction
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/2.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/2-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/2.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Brandon Fraser</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      Senior Software Dev, Cosmic Sport
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/1.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/1-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/1.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Tim Bailey</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      SEO Specialist, Theme Junction
+                    </p>
+                  </div>
+                </div>
+                <div class="p-25px bg-white-color dark:bg-primary-color-light rounded-15px relative z-0 group">
+                  <div class="flex justify-between gap-30px mb-5">
+                    <div class="max-w-100px w-full">
+                      <img src="img/testimonials/logo/2.png" alt="" class="!hidden dark:!block" />
+                      <img src="img/testimonials/logo/2-dark.png" alt="" class="!block dark:!hidden" />
+                    </div>
+                    <div class="max-w-120px w-2/5">
+                      <img class="rounded-5px rounded-bl-125px w-full" src="img/testimonials/user/2.jpg"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="text-primary-color-light dark:text-white-color relative z-10">
+                    <div class="icon-box mb-25px flex gap-1">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint6_linear_263_514)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="transition-all duration-300 ml-1">
+                        <path
+                          d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                          fill="url(#paint7_linear_263_515)" class="fill-primary-color"></path>
+                        <defs>
+                          <linearGradient x1="-0.0363755" y1="-0.0729998" x2="35.3333" y2="-0.0729991"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="1" stop-color="var(--tj-theme-primary)"></stop>
+                            <stop offset="1" stop-color="#140C1C" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p class="text-primary-color-light dark:text-body-color mb-30px md:mb-50px">
+                      "Taylor is a professional Designer he really helps my
+                      business by providing value to my business.
+                    </p>
+                    <h4 class="text-lg mb-2">Brandon Fraser</h4>
+
+                    <p class="text-primary-color-light dark:text-body-color text-sm">
+                      Senior Software Dev, Cosmic Sport
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- blogs area -->
+    <section>
+      <div id="blogs" class="py-60px md:py-20 lg:py-100px xl:py-30">
+        <div class="container">
+          <!-- section heading -->
+          <div class="text-center flex flex-col items-center mb-10 md:mb-50px">
+            <h2
+              class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px wow fadeInUp"
+              data-wow-delay=".3s">
+              Recent Blogs
+            </h2>
+            <p class="text-primary-color-light dark:text-body-color max-w-700px wow fadeInUp" data-wow-delay=".4s">
+              We put your ideas and thus your wishes in the form of a unique
+              web project that inspires you and you customers.
+            </p>
+          </div>
+          <!-- blogs -->
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-25px 2xl:gap-35px">
+            <div class="group relative flex flex-col items-center wow fadeInUp" data-wow-delay=".5s">
+              <div class="rounded-10px relative overflow-hidden max-w-400 w-full">
+                <a href="#" class="rounded-10px overflow-hidden">
+                  <img src="img/blog/1.jpg" alt=""
+                    class="group-hover:scale-110 transition-all duration-500" /></a>
+                <a href="#"
+                  class="text-size-13 uppercase px-10px py-7px rounded-50px leading-1 absolute top-[15px] left-[15px] text-white-color bg-gradient-secondary-2 bg-200 hover:bg-100">Tutorial</a>
+                <div class="absolute left-0 bottom-5 w-full px-10px lg:px-5 transition-all duration-500">
+                  <div
+                    class="relative z-0 p-15px pb-5 bg-white-color dark:bg-seondary-color rounded-15px w-full after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 group-hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-15px">
+                    <div class="relative z-10">
+                      <ul class="flex gap-5 items-center mb-2">
+                        <li
+                          class="text-sm font-medium text-primary-color group-hover:text-white-color transition-all duration-500">
+                          <i class="fa-light fa-calendar-days mr-0.5"></i> Oct
+                          01, 2022
+                        </li>
+                        <li class="text-sm font-medium">
+                          <i
+                            class="fa-light fa-comments mr-0.5 text-primary-color group-hover:text-white-color transition-all duration-500"></i>
+                          <a href="#"
+                            class="text-primary-color group-hover:text-white-color transition-all duration-500">Comment
+                            (0)</a>
+                        </li>
+                      </ul>
+                      <a href="#"
+                        class="text-primary-color-light dark:text-white-color group-hover:text-white-color w-full capitalize">
+                        <span class="block text-lg md:text-size-22 font-bold">
+                          top 10 ui ux designers
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group relative flex flex-col items-center wow fadeInUp" data-wow-delay=".6s">
+              <div class="rounded-10px relative overflow-hidden max-w-400 w-full">
+                <a href="#" class="rounded-10px overflow-hidden">
+                  <img src="img/blog/2.jpg" alt=""
+                    class="group-hover:scale-110 transition-all duration-500" /></a>
+                <a href="#"
+                  class="text-size-13 uppercase px-10px py-7px rounded-50px leading-1 absolute top-[15px] left-[15px] text-white-color bg-gradient-secondary-2 bg-200 hover:bg-100">TIPS</a>
+                <div class="absolute left-0 bottom-5 w-full px-10px lg:px-5 transition-all duration-500">
+                  <div
+                    class="relative z-0 p-15px pb-5 bg-white-color dark:bg-seondary-color rounded-15px w-full after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 group-hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-15px">
+                    <div class="relative z-10">
+                      <ul class="flex gap-5 items-center mb-2">
+                        <li
+                          class="text-sm font-medium text-primary-color group-hover:text-white-color transition-all duration-500">
+                          <i class="fa-light fa-calendar-days mr-0.5"></i> Nov
+                          01, 2022
+                        </li>
+                        <li class="text-sm font-medium">
+                          <i
+                            class="fa-light fa-comments mr-0.5 text-primary-color group-hover:text-white-color transition-all duration-500"></i>
+                          <a href="#"
+                            class="text-primary-color group-hover:text-white-color transition-all duration-500">Comment
+                            (0)</a>
+                        </li>
+                      </ul>
+                      <a href="#"
+                        class="text-primary-color-light dark:text-white-color group-hover:text-white-color w-full capitalize">
+                        <span class="block text-lg md:text-size-22 font-bold">
+                          App Development Guides
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group relative flex flex-col items-center wow fadeInUp" data-wow-delay=".7s">
+              <div class="rounded-10px relative overflow-hidden max-w-400 w-full">
+                <a href="#" class="rounded-10px overflow-hidden">
+                  <img src="img/blog/3.jpg" alt=""
+                    class="group-hover:scale-110 transition-all duration-500" /></a>
+                <a href="#"
+                  class="text-size-13 uppercase px-10px py-7px rounded-50px leading-1 absolute top-[15px] left-[15px] text-white-color bg-gradient-secondary-2 bg-200 hover:bg-100">FREEBIES</a>
+                <div class="absolute left-0 bottom-5 w-full px-10px lg:px-5 transition-all duration-500">
+                  <div
+                    class="relative z-0 p-15px pb-5 bg-white-color dark:bg-seondary-color rounded-15px w-full after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 group-hover:after:opacity-100 after:transition-all after:duration-500 after:z-1 after:bg-gradient-primary after:rounded-15px">
+                    <div class="relative z-10">
+                      <ul class="flex gap-5 items-center mb-2">
+                        <li
+                          class="text-sm font-medium text-primary-color group-hover:text-white-color transition-all duration-500">
+                          <i class="fa-light fa-calendar-days mr-0.5"></i> Dec
+                          01, 2022
+                        </li>
+                        <li class="text-sm font-medium">
+                          <i
+                            class="fa-light fa-comments mr-0.5 text-primary-color group-hover:text-white-color transition-all duration-500"></i>
+                          <a href="#"
+                            class="text-primary-color group-hover:text-white-color transition-all duration-500">Comment
+                            (0)</a>
+                        </li>
+                      </ul>
+                      <a href="#"
+                        class="text-primary-color-light dark:text-white-color group-hover:text-white-color w-full capitalize">
+                        <span class="block text-lg md:text-size-22 font-bold">
+                          learn graphic design free
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact area -->
+    <app-contact></app-contact>
+  </div>
+
+  <!-- footer area -->
+   <app-footer></app-footer>
+  
+  <!-- JSS here -->
+</body>
+
+</html>

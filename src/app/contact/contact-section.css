@@ -1,0 +1,128 @@
+/* Styles personnalisés pour le formulaire de contact */
+
+/* Animation du spinner de chargement */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Styles pour les messages de statut */
+.status-message {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.status-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Amélioration des champs de formulaire */
+.form-field {
+  position: relative;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
+  border-color: var(--tj-theme-primary);
+}
+
+/* Style pour les champs requis */
+.form-field input:required:invalid:not(:focus):not(:placeholder-shown),
+.form-field textarea:required:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.form-field input:required:valid:not(:focus):not(:placeholder-shown),
+.form-field textarea:required:valid:not(:focus):not(:placeholder-shown) {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* Style pour le bouton disabled */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+button:disabled:hover {
+  background: none !important;
+}
+
+/* Animation pour le bouton de soumission */
+.submit-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* Style pour le select personnalisé */
+.tj-nice-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Responsive améliorations */
+@media (max-width: 640px) {
+  .contact {
+    padding: 20px 15px !important;
+  }
+  
+  .grid.grid-cols-1.sm\\:grid-cols-2 {
+    gap: 15px;
+  }
+}
+
+/* Animation d'apparition pour les messages */
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: slideInDown 0.3s ease;
+}
+
+/* Amélioration de l'accessibilité */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--tj-theme-primary);
+  outline-offset: 2px;
+}
+
+/* Style pour les placeholders en mode sombre */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Transition douce pour tous les éléments */
+* {
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}

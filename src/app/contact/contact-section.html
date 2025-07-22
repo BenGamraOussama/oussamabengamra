@@ -1,0 +1,229 @@
+<section id="contact">
+      <div class="bg-cream-light-color dark:bg-black-color py-60px md:py-20 lg:py-100px xl:py-30">
+        <div class="container">
+          <div class="flex flex-col-reverse md:grid md:grid-cols-12 md:items-center gap-x-6 gap-y-10">
+            <!-- section heading -->
+            <div class="md:col-start-1 md:col-span-7 lg:col-span-6">
+              <div class="wow fadeInLeft" data-wow-delay=".3s">
+                <form 
+                  class="contact px-15px py-30px md:px-5 lg:px-30px lg:py-10 xl:px-10 bg-white-color dark:bg-primary-color-light rounded-15px">
+                  <div class="text-center mb-25px">
+                    <h2
+                      class="text-3xl md:text-size-35 lg:text-size-40 xl:text-size-45 bg-gradient-text-light dark:bg-gradient-text bg-clip-text xl:leading-1.2 text-transparent mb-15px">
+                      Let's work together!
+                    </h2>
+                    <p class="text-primary-color-light dark:text-body-color wow fadeInLeft" data-wow-delay=".4s">
+                      I'm passionate about creating innovative solutions and would love to collaborate on your next project. 
+                      Let's bring your ideas to life!
+                    </p>
+                  </div>
+
+                  <!-- inputs -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-15px">
+                    <!-- first name -->
+                    <div>
+                      <input 
+                        name="firstName" 
+                        id="firstName" 
+                        type="text" 
+                        placeholder="First name *"
+                        required
+                        class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
+                    </div>
+                    <!-- Last name -->
+                    <div>
+                      <input 
+                        name="lastName" 
+                        id="lastName" 
+                        type="text" 
+                        placeholder="Last name *"
+                        required
+                        class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
+                    </div>
+                    <!-- Email address -->
+                    <div>
+                      <input 
+                        name="email" 
+                        id="email" 
+                        type="email" 
+                        placeholder="Email address *"
+                        required
+                        class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
+                    </div>
+                    <!-- Phone number -->
+                    <div>
+                      <input 
+                        name="phone" 
+                        id="phone" 
+                        type="tel" 
+                        placeholder="Phone number"
+                        class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
+                    </div>
+                    <div class="form_group sm:col-start-1 sm:col-span-2">
+                      <select 
+                        name="service" 
+                        id="service" 
+                        class="tj-nice-select w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 text-white-color">
+                        <option value="" disabled selected>Choose Service</option>
+                        <option value="fullstack">Full-Stack Development</option>
+                        <option value="branding">Branding Design</option>
+                        <option value="web">Web Design</option>
+                        <option value="uxui">UI/UX Design</option>
+                        <option value="app">App Design</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="sm:col-start-1 sm:col-span-2">
+                      <textarea 
+                        name="message" 
+                        id="message" 
+                        cols="1" 
+                        rows="10" 
+                        placeholder="Message *"
+                        required
+                        class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"></textarea>
+                    </div>
+                    <div class="sm:col-start-1 sm:col-span-2">
+                      <button 
+                        type="button"
+                        onclick="
+                          // Récupérer les données du formulaire
+                          const firstName = document.getElementById('firstName').value || 'Visiteur';
+                          const lastName = document.getElementById('lastName').value || 'Portfolio';
+                          const email = document.getElementById('email').value || 'contact@example.com';
+                          const phone = document.getElementById('phone').value || '';
+                          const service = document.getElementById('service').value || '';
+                          const message = document.getElementById('message').value || 'Message depuis le portfolio';
+                          
+                          // Validation simple
+                          if (!firstName.trim() || !lastName.trim() || !email.trim() || !message.trim()) {
+                            alert('Veuillez remplir tous les champs obligatoires.');
+                            return;
+                          }
+                          
+                          // Désactiver le bouton
+                          this.disabled = true;
+                          this.innerHTML = '<span>Sending...</span>';
+                          
+                          const sendEmail = () => {
+                            // Générer timestamp
+                            const now = new Date();
+                            const timeString = now.toLocaleString('fr-FR', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            });
+                            
+                            window.emailjs.send('service_fwj1q64', 'template_iv7uowd', {
+                              name: firstName + ' ' + lastName,
+                              from_email: email,
+                              message: message,
+                              phone: phone,
+                              service: service,
+                              time: timeString
+                            }, 'ifofOfoggt5NaV54l').then(result => {
+                              alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
+                              
+                              // Réinitialiser le formulaire
+                              document.getElementById('firstName').value = '';
+                              document.getElementById('lastName').value = '';
+                              document.getElementById('email').value = '';
+                              document.getElementById('phone').value = '';
+                              document.getElementById('service').value = '';
+                              document.getElementById('message').value = '';
+                              
+                              // Réactiver le bouton
+                              this.disabled = false;
+                              this.innerHTML = '<span>Send Message</span>';
+                              
+                            }).catch(error => {
+                              alert('❌ Une erreur est survenue lors de l envoi. Veuillez réessayer.');
+                              
+                              // Réactiver le bouton
+                              this.disabled = false;
+                              this.innerHTML = '<span>Send Message</span>';
+                            });
+                          };
+                          
+                          // Charger EmailJS si nécessaire
+                          if (!window.emailjs) {
+                            const script = document.createElement('script');
+                            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+                            script.onload = () => {
+                              window.emailjs.init('ifofOfoggt5NaV54l');
+                              sendEmail();
+                            };
+                            script.onerror = () => {
+                              alert('❌ Erreur de chargement. Veuillez réessayer.');
+                              this.disabled = false;
+                              this.innerHTML = '<span>Send Message</span>';
+                            };
+                            document.head.appendChild(script);
+                          } else {
+                            sendEmail();
+                          }
+                        "
+                        class="text-size-15 font-bold text-white-color capitalize py-17px px-35px bg-200 bg-gradient-secondary hover:bg-[-100%] rounded-full leading-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                        <span>Send Message</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- experience single area -->
+            <div class="md:col-start-8 md:col-span-5">
+              <div class="contact-info-list">
+                <ul class="flex flex-col gap-y-10">
+                  <li class="flex flex-wrap items-center gap-25px position-relative wow fadeInRight"
+                    data-wow-delay=".4s">
+                    <div
+                      class="icon-box text-xl w-50px h-50px text-white-color flex justify-center items-center flex-col bg-gradient-primary-2 rounded-full leading-1">
+                      <i class="flaticon-phone-call leading-1 mt-1"></i>
+                    </div>
+                    <div class="text-box">
+                      <p class="text-primary-color-light dark:text-white-color mb-1">
+                        Phone
+                      </p>
+                      <a href="tel:+21627448125"
+                        class="text-primary-color-light dark:text-white-color text-lg lg:text-xl font-medium hover:text-primary-color">+216 27 448 125</a>
+                    </div>
+                  </li>
+                  <li class="flex flex-wrap items-center gap-25px position-relative wow fadeInRight"
+                    data-wow-delay=".5s">
+                    <div
+                      class="icon-box text-xl w-50px h-50px text-white-color flex justify-center items-center flex-col bg-gradient-primary-2 rounded-full leading-1">
+                      <i class="flaticon-mail-inbox-app leading-1 mt-1"></i>
+                    </div>
+                    <div class="text-box">
+                      <p class="text-primary-color-light dark:text-white-color mb-1">
+                        Email
+                      </p>
+                      <a href="mailto:oussama.bengamra@esprit.tn"
+                        class="text-primary-color-light dark:text-white-color text-lg lg:text-xl font-medium hover:text-primary-color">oussama.bengamra&#64;esprit.tn</a>
+                    </div>
+                  </li>
+                  <li class="flex flex-wrap items-center gap-25px position-relative wow fadeInRight"
+                    data-wow-delay=".6s">
+                    <div
+                      class="icon-box text-xl w-50px h-50px text-white-color flex justify-center items-center flex-col bg-gradient-primary-2 rounded-full leading-1">
+                      <i class="flaticon-location leading-1 mt-1"></i>
+                    </div>
+                    <div class="text-box">
+                      <p class="text-primary-color-light dark:text-white-color mb-1">
+                        Address
+                      </p>
+                      <a href="#"
+                        class="text-primary-color-light dark:text-white-color text-lg lg:text-xl font-medium hover:text-primary-color">Tunis, Tunisia <br />
+                        North Africa</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
