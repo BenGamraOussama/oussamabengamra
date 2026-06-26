@@ -1,0 +1,54 @@
+.header-row {
+  gap: 0.5rem;
+}
+
+.header-row > div:first-child {
+  min-width: 0;
+}
+
+.header-row nav {
+  flex: 0 0 auto;
+}
+
+.header-row .nav {
+  flex-wrap: nowrap;
+}
+
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  max-width: clamp(92px, 34vw, 150px);
+}
+
+.header-logo img {
+  width: 100%;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.hire-button {
+  white-space: nowrap;
+}
+
+@media (max-width: 539px) {
+  .header-row .nav {
+    column-gap: 0.5rem;
+  }
+
+  .hire-button {
+    margin-left: 0;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 359px) {
+  .header-logo {
+    max-width: 86px;
+  }
+
+  .hire-button {
+    padding: 10px 14px;
+  }
+}

@@ -11,19 +11,26 @@ export class Header {
   constructor(private router: Router) {}
 
   goToSection(sectionId: string, event?: Event) {
-    if (event) event.preventDefault();
+    event?.preventDefault();
+
     const scrollToAnchor = () => {
       const el = document.getElementById(sectionId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     };
-    if (this.router.url === '/' || this.router.url.startsWith('/#')) {
-      setTimeout(scrollToAnchor, 0);
-    } else {
-      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
-        setTimeout(scrollToAnchor, 200);
+
+    const currentPath = this.router.url.split('#')[0].split('?')[0];
+
+    if (currentPath === '/' || currentPath === '') {
+      this.router.navigate([], { fragment: sectionId }).then(() => {
+        setTimeout(scrollToAnchor, 0);
       });
+      return;
     }
+
+    this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+      setTimeout(scrollToAnchor, 200);
+    });
   }
 }

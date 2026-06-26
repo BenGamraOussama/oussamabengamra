@@ -1,154 +1,242 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Footer } from "../footer/footer";
 import { ContactSection } from "../contact/contact-section";
+import { Project, ProjectService } from '../services/project.service';
+import { isPlatformBrowser } from '@angular/common';
+import { Header } from "../header/header";
 
-interface DetailedProject {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
+interface DetailedProject extends Project {
   client?: string;
   date?: string;
   developer?: string;
-  fullDescription?: string;
-  features?: string[];
-  images?: string[];
-  details?: string;
-  technologies?: string[];
-  githubUrl?: string;
+  images: string[];
 }
 
 @Component({
   selector: 'app-portflio-details',
-  imports: [Footer, CommonModule, ContactSection],
+  imports: [Header, Footer, CommonModule, ContactSection, RouterModule],
   templateUrl: './portflio-details.html',
   styleUrls: ['./portflio-details.css']
 })
 export class PortflioDetails implements OnInit {
   serviceId: number | null = null;
   service: DetailedProject | undefined;
+  previousProject: Project | undefined;
+  nextProject: Project | undefined;
+  currentImageIndex = 0;
 
-  services: DetailedProject[] = [
-    {
-    id: 1,
-    image: 'img/portfolio/hopenest/hopenest.png',
-    title: 'HopeNest',
-    description: 'Mental health support application with adaptive resources and user-friendly interface.',
-    category: 'Mental Health Platform',
-    client: 'ESPRIT',
-    date: 'January 20, 2025',
-    developer: 'NovaTeam',
-    fullDescription: 'HopeNest is a comprehensive mental health support application designed to provide adaptive resources and an intuitive user interface for individuals seeking mental health support. The application features personalized content, interactive tools, and a supportive community platform.',
-    features: [
-        'Personalized mental health resources',
-        'Interactive mood tracking',
-        'Community support forums',
-        'Professional consultation booking',
-        'Progress monitoring dashboard',
-        'Mobile-responsive design'
-      ],
-      images: [
-        'img/portfolio/hopenest/hopenest1.png',
-        'img/portfolio/hopenest/hopenest2.png',
-        'img/portfolio/hopenest/hopenest3.png',
-        'img/portfolio/hopenest/hopenest4.png',
-      ],
-      technologies: ['Symfony', 'PostgreSQL', 'API Integration'],
-      githubUrl: 'https://github.com/BenGamraOussama/HopeNest',
-  },
-  {
-      id: 2,
-      image: 'img/portfolio/shopflow/commerce1.png',
-      title: 'ShopFlow',
-      description: 'E-commerce application designed to enhance online shopping experience.',
-      category: 'E-commerce',
-      client: 'ISET',
-      date: 'February 2024',
+  private readonly metadata: Record<number, Pick<DetailedProject, 'client' | 'date' | 'developer' | 'images'>> = {
+    1: {
+      client: 'ESPRIT',
+      date: 'Jan 2026 - May 2026',
       developer: 'Oussama Ben Gamra',
-      fullDescription: 'ShopFlow is an innovative e-commerce application designed to help client companies adapt to new e-commerce trends and improve the customer experience. The project focuses on developing a robust online sales application with modern features and an intuitive interface.',
-      features: [
-        'Modern e-commerce interface',
-        'Product catalog management',
-        'Shopping cart and checkout process',
-        'Payment gateway integration',
-        'Order tracking and management',
-        'Customer reviews and ratings'
-      ],
+      images: ['img/portfolio/pathmyway/thumb.png'],
+    },
+    2: {
+      client: 'ESPRIT',
+      date: 'Feb 2026',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/maratech/1.png', 'img/portfolio/maratech/2.png', 'img/portfolio/maratech/3.png', 'img/portfolio/maratech/4.png', 'img/portfolio/maratech/5.png', 'img/portfolio/maratech/6.png'],
+    },
+    3: {
+      client: 'ACTIA Engineering Services',
+      date: 'Jun 2025 - Aug 2025',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/can-anomaly/thumb.png'],
+    },
+    4: {
+      client: 'ESPRIT',
+      date: 'Jan 2026 - May 2026',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/onfaitou/thumb.png'],
+    },
+    5: {
+      client: 'DSIGNET',
+      date: 'Feb 2024 - May 2024',
+      developer: 'Oussama Ben Gamra',
       images: [
         'img/portfolio/shopflow/commerce1.png',
         'img/portfolio/shopflow/commerce2.png',
         'img/portfolio/shopflow/commerce3.png',
         'img/portfolio/shopflow/commerce4.png',
         'img/portfolio/shopflow/commerce5.png',
-        'img/portfolio/shopflow/commerce6.png'
+        'img/portfolio/shopflow/commerce6.png',
       ],
-      technologies: ['Angular', 'Spring Boot', 'Mysql', 'API Integration'],
-      githubUrl: 'https://github.com/BenGamraOussama/PFE_ISET'
     },
-    {
-      id: 3,
-      image: 'img/portfolio/match90plus/match.png',
-      title: 'Match90Plus',
-      description: 'Mobile application for stadium reservations and sports activity management.',
-      category: 'mobile-app',
+    6: {
       client: 'ESPRIT',
-      date: 'September 20, 2024',
+      date: 'Academic project',
       developer: 'Oussama Ben Gamra',
-      fullDescription: 'Match90Plus is a comprehensive mobile application that centralizes stadium reservations and sports activity management. The application allows users to check stadium availability, make online reservations, and form teams or find partners. Managers can manage reservations, track facility usage, and receive feedback from users.',
-      features: [
-        'Stadium availability checking',
-        'Online reservation system',
-        'Team formation tools',
-        'Partner finding system',
-        'Facility usage tracking'
+      images: [
+        'img/portfolio/hopenest/hopenest1.png',
+        'img/portfolio/hopenest/hopenest2.png',
+        'img/portfolio/hopenest/hopenest3.png',
+        'img/portfolio/hopenest/hopenest4.png',
       ],
+    },
+    7: {
+      client: "Centre National de l'Informatique",
+      date: 'Jan 2023 - Feb 2023',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/absence/abs.png'],
+    },
+    8: {
+      client: 'ESPRIT',
+      date: 'Academic project',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/student-devops/thumb.png'],
+    },
+    9: {
+      client: 'ESPRIT',
+      date: 'Academic project',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/gestion-ue/thumb.png'],
+    },
+    10: {
+      client: 'ESPRIT',
+      date: 'Academic project',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/ml-recommendation/thumb.png'],
+    },
+    11: {
+      client: 'ESPRIT',
+      date: 'Academic project',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/olympic-bi/thumb.png'],
+    },
+    12: {
+      client: 'ESPRIT',
+      date: 'Academic project',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/airport/thumb.png'],
+    },
+    13: {
+      client: 'ESPRIT',
+      date: 'Sep 2024',
+      developer: 'Oussama Ben Gamra',
       images: [
         'img/portfolio/match90plus/match1.png',
         'img/portfolio/match90plus/match2.png',
         'img/portfolio/match90plus/match3.png',
-        'img/portfolio/match90plus/match4.png'
+        'img/portfolio/match90plus/match4.png',
       ],
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Express.js'],
-      githubUrl: 'https://github.com/BenGamraOussama/Symfony_PI_DEV',
     },
-    {
-      id: 4,
-      image: 'img/portfolio/absence/abs.png',
-      title: 'Absence Management',
-      description: 'MERN stack application for managing employee absences with secure authentication.',
-      category: 'HR Management',
-      client: 'ISET',
-      date: 'March 2023',
+    14: {
+      client: 'ESPRIT',
+      date: 'Academic project',
       developer: 'Oussama Ben Gamra',
-      fullDescription: 'This project is a comprehensive MERN stack application designed to manage employee absences efficiently. It includes secure authentication, user-friendly interfaces, and robust backend services to handle absence requests and approvals.',
-      features: [
-        'Employee login and registration',
-        'Absence request submission',
-        'Admin dashboard for managing absences',
-        'Email notifications for approvals'
-      ],
-      images: [
-        'img/portfolio/absence/abs.png',
-      ],
-      technologies: ['Node.js', 'React.js', 'MongoDB'],
+      images: ['img/portfolio/foyer/thumb.png'],
     },
-  ];
-  
-    constructor(private route: ActivatedRoute, private router: Router) {}
-  
-    ngOnInit() {
-      this.route.paramMap.subscribe(params => {
-        const idParam = params.get('id');
-        this.serviceId = idParam ? +idParam : null;
-        this.service = this.services.find(s => s.id === this.serviceId);
-      });
-    }
-  
-    navigateToServices() {
-      this.router.navigate(['/'], { fragment: 'work' });
-    }
+    
+  };
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private projectService: ProjectService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id');
+      this.serviceId = idParam ? +idParam : null;
+      const project = this.serviceId ? this.projectService.getProjectById(this.serviceId) : undefined;
+
+      if (project) {
+        const metadata = this.metadata[project.id] ?? {
+          client: 'Portfolio',
+          date: 'Project',
+          developer: 'Oussama Ben Gamra',
+          images: [project.image],
+        };
+
+        this.service = {
+          ...project,
+          ...metadata,
+          images: metadata.images.length ? metadata.images : [project.image],
+        };
+        this.currentImageIndex = 0;
+
+        const projects = this.projectService.getAllProjects();
+        const currentIndex = projects.findIndex(item => item.id === project.id);
+
+        if (currentIndex >= 0) {
+          const previousIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
+          const nextIndex = currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
+
+          this.previousProject = projects[previousIndex];
+          this.nextProject = projects[nextIndex];
+        }
+      } else {
+        this.service = undefined;
+        this.previousProject = undefined;
+        this.nextProject = undefined;
+        this.currentImageIndex = 0;
+      }
+    });
   }
-  
+
+  get hasMultipleImages(): boolean {
+    return (this.service?.images.length ?? 0) > 1;
+  }
+
+  get carouselImages(): string[] {
+    const images = this.service?.images ?? [];
+
+    if (images.length < 2) {
+      return images;
+    }
+
+    return images.map((_, index) => images[(this.currentImageIndex + index) % images.length]);
+  }
+
+  previousImage(): void {
+    const imagesCount = this.service?.images.length ?? 0;
+
+    if (imagesCount < 2) {
+      return;
+    }
+
+    this.currentImageIndex = (this.currentImageIndex - 1 + imagesCount) % imagesCount;
+  }
+
+  nextImage(): void {
+    const imagesCount = this.service?.images.length ?? 0;
+
+    if (imagesCount < 2) {
+      return;
+    }
+
+    this.currentImageIndex = (this.currentImageIndex + 1) % imagesCount;
+  }
+
+  selectImage(index: number): void {
+    const imagesCount = this.service?.images.length ?? 0;
+
+    if (index < 0 || index >= imagesCount) {
+      return;
+    }
+
+    this.currentImageIndex = index;
+  }
+
+  trackImage(index: number, image: string): string {
+    return `${index}-${image}`;
+  }
+
+  navigateToServices() {
+    this.router.navigate(['/']).then(() => {
+      if (isPlatformBrowser(this.platformId)) {
+        window.setTimeout(() => {
+          const target = document.getElementById('portfolio');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 0);
+      }
+    });
+  }
+}

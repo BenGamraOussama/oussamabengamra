@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Footer } from "../footer/footer";
 import { CommonModule } from '@angular/common';
-import { ContactSection } from "../contact/contact-section";
+import { Header } from "../header/header";
 
 interface Service {
   id: number;
   title: string;
   description: string;
   image: string;
+  icon: string;
   description1?: string;
   details?: string[];
   competences?: string[];
@@ -16,7 +17,7 @@ interface Service {
 
 @Component({
   selector: 'app-service-details',
-  imports: [CommonModule, Footer, RouterModule],
+  imports: [Header, CommonModule, Footer, RouterModule],
   templateUrl: './service-details.html',
   styleUrl: './service-details.css'
 })
@@ -26,84 +27,89 @@ export class ServiceDetails implements OnInit {
 
   services: Service[] = [
     {
-  id: 1,
-  image: 'img/services/fullstack.jpg',
-  title: 'Full-Stack Development',
-  description: 'As a Full-Stack Developer, I design and build complete web applications, from user interface to server-side data management. I master modern technologies to create high-performance, secure, and scalable solutions tailored to the specific needs of each project.',
-  competences:[ 
-   'Front-end: HTML, CSS, JavaScript, Angular, React',
-   'Back-end: Node.js, Spring Boot, PHP (Laravel)',
-   'Databases: MySQL, PostgreSQL, MongoDB',
-   'CI/CD, cloud hosting, optimization & maintenance',
-   'I work in a structured and transparent manner through the following stages:',
-],
-  details:[
-    'Analysis of client needs and objectives',
-    'Custom UI/UX design and prototyping',
-    'Modular Front-end & Back-end development',
-    'Functional, unit and security testing',
-    'Production deployment, monitoring and evolution',
-  ],
-},
-{
-  id: 2,
-  image: 'img/services/cloud.jpeg',
-  title: 'Cloud & DevOps Solutions',
-  description: 'As a Cloud & DevOps Engineer, I design, deploy, and maintain scalable, secure, and automated infrastructures. I help businesses migrate to the cloud, modernize their systems, and improve the availability, performance, and resilience of their services.',
-  competences:[ 
-    'Cloud providers: AWS, Azure, Google Cloud Platform',
-    'Infrastructure as Code: Terraform, Ansible, CloudFormation',
-    'Containerization: Docker, Kubernetes, Helm',
-    'CI/CD: GitHub Actions, GitLab CI, Jenkins, monitoring (Prometheus, Grafana)',
-  ],
-  description1: 'Each cloud project follows a rigorous and adaptable methodology:',
-  details:[
-    'Analysis of existing architecture and cloud objectives',
-    'Design of secure and scalable infrastructure',
-    'Deployment automation and continuous integration',
-    'Monitoring, alerting and backup systems setup',
-    'Cost optimization and long-term support',
-     ],
-},
-{
-  id: 3,
-  image: 'img/services/ai.jpeg',
-  title: 'Artificial Intelligence Development',
-  description: 'As an AI Developer, I design intelligent solutions capable of analyzing data, automating complex tasks, and enhancing decision-making. I integrate machine learning and predictive models into real-world, high-performance applications.',
-  competences: [
-   'Machine Learning: Scikit-learn, TensorFlow, PyTorch',
-   'Deep Learning: Neural Networks, CNN, LSTM, Transformers',
-   'Data processing: Pandas, NumPy, Spark, OpenCV',
-   'Deployment: REST API, FastAPI, Docker, MLflow',
-   ],
-  description1: 'Each AI project is carried out with precision through the following stages:',
-  details:[ 'Data collection, cleaning and preparation',
-   'Model selection and training',
-   'Model evaluation, tuning, and cross-validation',
-   'Integration into existing systems (API, web interface...)',
-   'Performance tracking and continuous improvement',
-  ],
-},
-{
-  id: 4,
-  image: 'img/services/api.jpeg',
-  title: 'API & Web Services Integration',
-  description: 'I integrate third-party APIs or design custom APIs to connect different applications, automate data exchange, and enhance business features. My approach ensures smooth, secure, and efficient communication between systems.',
-   competences: [
-    'REST, GraphQL, WebSocket, gRPC',
-    'Tools: Postman, Swagger, Insomnia',
-    'Authentication: OAuth2, JWT, API Key',
-    'Third-party APIs: Stripe, Google Maps, Twilio, SendGrid, etc.',
-   ],
-  description1: 'The API integration process follows clear and efficient steps:',
-  details:[ 'Analysis of functional and technical requirements',
-   'Review of existing API documentation',
-   'Development of robust connection interfaces',
-   'Error handling, security and performance tuning',
-   'Testing, monitoring and scalability of integration',
-  ],
-}
-
+      id: 1,
+      image: 'img/services/fullstack.jpg',
+      icon: 'flaticon-design',
+      title: 'Full-Stack Development',
+      description: 'I design and build complete web applications from frontend interfaces to backend APIs, database modeling, authentication, deployment, and maintenance.',
+      competences: [
+        'Frontend: Angular, React.js, HTML5, CSS3, Bootstrap',
+        'Backend: Spring Boot, Node.js, Express.js, Symfony, Flask',
+        'Databases: PostgreSQL, MySQL, MongoDB',
+        'Security: JWT, Keycloak, API authentication',
+      ],
+      description1: 'A full-stack project is delivered through a clear implementation cycle:',
+      details: [
+        'Functional analysis and technical scoping',
+        'UI structure and frontend development',
+        'REST API design and backend implementation',
+        'Database schema and integration',
+        'Testing, deployment and iterative improvements',
+      ],
+    },
+    {
+      id: 2,
+      image: 'img/services/api.jpeg',
+      icon: 'flaticon-ux-design',
+      title: 'Architecture & Microservices',
+      description: 'I structure applications around maintainable backend architecture, modular services, clean API contracts, and scalable communication patterns.',
+      competences: [
+        'Architecture: Microservices, SOA, MVC, distributed systems',
+        'Integration: REST API, GraphQL, API Gateway',
+        'Service management: Eureka, service discovery, modular boundaries',
+        'Documentation and testing: Postman, API validation, integration flows',
+      ],
+      description1: 'Architecture work focuses on reliability and long-term maintainability:',
+      details: [
+        'Domain decomposition and service boundaries',
+        'API contract design and data flow mapping',
+        'Authentication and authorization strategy',
+        'Integration testing and error handling',
+        'Performance, scalability and maintainability review',
+      ],
+    },
+    {
+      id: 3,
+      image: 'img/services/ai.jpeg',
+      icon: 'flaticon-web-design',
+      title: 'AI, ML & Data Analytics',
+      description: 'I build intelligent features and analytical dashboards, from machine learning pipelines to Flask APIs, recommendation systems, anomaly detection and Power BI reporting.',
+      competences: [
+        'Machine Learning: Random Forest, XGBoost, classification, recommendation systems',
+        'Optimization: GridSearchCV, Optuna, model comparison',
+        'Data & BI: Power BI, DAX, KPI, data visualization',
+        'Deployment: Flask REST API and web supervision interfaces',
+      ],
+      description1: 'AI and analytics projects are handled with measurable model and data quality:',
+      details: [
+        'Data collection, cleaning and preprocessing',
+        'Feature engineering and model selection',
+        'Training, evaluation and optimization',
+        'API or dashboard integration',
+        'Monitoring, reporting and continuous improvement',
+      ],
+    },
+    {
+      id: 4,
+      image: 'img/services/cloud.jpeg',
+      icon: 'flaticon-3d-movie',
+      title: 'DevOps & Cloud Engineering',
+      description: 'I automate delivery workflows and prepare applications for reliable deployment using CI/CD, containers, orchestration, and monitoring practices.',
+      competences: [
+        'CI/CD: Jenkins, GitHub Actions, automated pipelines',
+        'Containers: Docker, Docker Compose, Kubernetes',
+        'Versioning: Git, GitHub workflow and branching',
+        'Operations: monitoring, deployment checks, performance follow-up',
+      ],
+      description1: 'DevOps work is built around repeatable delivery and operational visibility:',
+      details: [
+        'Repository workflow and pipeline design',
+        'Build, test and quality gates setup',
+        'Docker containerization',
+        'Kubernetes deployment and service exposure',
+        'Monitoring, rollback and maintenance workflow',
+      ],
+    },
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -118,5 +124,9 @@ export class ServiceDetails implements OnInit {
 
   navigateToServices() {
     this.router.navigate(['/'], { fragment: 'services' });
+  }
+
+  selectService(serviceId: number) {
+    this.router.navigate(['/service-details', serviceId]);
   }
 }
