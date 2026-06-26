@@ -133,49 +133,55 @@
                       </ul>
                     </div>
 
-                    <!-- slider -->
+                    <!-- gallery full-width -->
+                    <div class="gallery mb-10 md:mb-50px"
+                      (mouseenter)="pauseAutoPlay()" (mouseleave)="resumeAutoPlay()"
+                      (keydown)="onKeydown($event)" tabindex="0" role="region" aria-label="Project gallery">
 
-                    <div class="mb-10 md:mb-50px">
-                      <div class="portfolio-carousel">
-                        <div class="portfolio-carousel__viewport">
-                          <div class="portfolio-carousel__track" [attr.data-active-image]="currentImageIndex">
-                            <div
-                              *ngFor="let image of carouselImages; let i = index; trackBy: trackImage"
-                              class="portfolio-carousel__slide">
-                              <img [src]="image" [alt]="service.title + ' image ' + (i + 1)" loading="lazy" />
-                            </div>
-                          </div>
+                      <!-- viewer -->
+                      <div class="gallery__viewer">
+                        <img [src]="service.images[currentImageIndex]"
+                          [alt]="service.title + ' image ' + (currentImageIndex + 1)"
+                          class="gallery__image"
+                          [class.gallery__image--anim]="animKey"
+                          loading="lazy" />
+
+                        <div class="gallery__glow"></div>
+
+                        <div class="gallery__counter">
+                          <span class="gallery__counter-current">{{ currentImageIndex + 1 }}</span>
+                          <span class="gallery__counter-sep">/</span>
+                          <span class="gallery__counter-total">{{ service.images.length }}</span>
                         </div>
 
-                        <button
-                          *ngIf="hasMultipleImages"
-                          type="button"
-                          class="portfolio-carousel__control portfolio-carousel__control--previous"
-                          aria-label="Previous image"
-                          (click)="previousImage()">
-                          <i class="fal fa-arrow-left"></i>
+                        <button *ngIf="hasMultipleImages" type="button"
+                          class="gallery__control gallery__control--prev"
+                          aria-label="Previous image" (click)="previousImage()">
+                          <i class="fal fa-chevron-left"></i>
                         </button>
 
-                        <button
-                          *ngIf="hasMultipleImages"
-                          type="button"
-                          class="portfolio-carousel__control portfolio-carousel__control--next"
-                          aria-label="Next image"
-                          (click)="nextImage()">
-                          <i class="fal fa-arrow-right"></i>
+                        <button *ngIf="hasMultipleImages" type="button"
+                          class="gallery__control gallery__control--next"
+                          aria-label="Next image" (click)="nextImage()">
+                          <i class="fal fa-chevron-right"></i>
                         </button>
 
-                        <div *ngIf="hasMultipleImages" class="portfolio-carousel__dots" aria-label="Project images">
-                          <button
-                            *ngFor="let image of service.images; let i = index; trackBy: trackImage"
-                            type="button"
-                            class="portfolio-carousel__dot"
-                            [class.portfolio-carousel__dot--active]="i === currentImageIndex"
-                            [attr.aria-label]="'Show image ' + (i + 1)"
-                            [attr.aria-current]="i === currentImageIndex ? 'true' : null"
-                            (click)="selectImage(i)">
-                          </button>
+                        <div *ngIf="hasMultipleImages" class="gallery__progress"
+                          [class.gallery__progress--paused]="autoPlayPaused">
+                          <div class="gallery__progress-bar"
+                            [style.animation-duration.ms]="autoPlayInterval"></div>
                         </div>
+                      </div>
+
+                      <!-- thumbnails -->
+                      <div *ngIf="hasMultipleImages" class="gallery__thumbs">
+                        <button *ngFor="let image of service.images; let i = index; trackBy: trackImage"
+                          type="button" class="gallery__thumb"
+                          [class.gallery__thumb--active]="i === currentImageIndex"
+                          (click)="selectImage(i)"
+                          [attr.aria-label]="'Select image ' + (i + 1)">
+                          <img [src]="image" [alt]="'Thumbnail ' + (i + 1)" loading="lazy" />
+                        </button>
                       </div>
                     </div>
                     <!-- description wrapper -->

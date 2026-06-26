@@ -10,6 +10,7 @@ import { ContactSection } from "../contact/contact-section";
 declare const window: Window & {
   $?: any;
   jQuery?: any;
+  WOW?: new (config?: { live?: boolean }) => { init(): void };
 };
 
 @Component({
@@ -91,7 +92,10 @@ export class Home implements AfterViewInit, OnDestroy {
       return;
     }
 
-    window.setTimeout(() => this.initializeHomeLayout(), 0);
+    window.setTimeout(() => {
+      this.initializeHomeLayout();
+      this.initializeCounters();
+    }, 0);
   }
 
   ngOnDestroy(): void {
@@ -109,6 +113,25 @@ export class Home implements AfterViewInit, OnDestroy {
   private initializeHomeLayout(): void {
     this.initializePortfolioFilter();
     this.initializeServiceHoverBackground();
+  }
+
+  private initializeCounters(): void {
+    const $ = window.jQuery || window.$;
+    if (!$) return;
+
+    const odometers = $('.funfact-item .odometer');
+    if (!odometers.length) return;
+
+    odometers.each(function (this: HTMLElement) {
+      const count = $(this).attr('data-count');
+      if (count) {
+        $(this).html(count);
+      }
+    });
+
+    if (window.WOW) {
+      new window.WOW({ live: false }).init();
+    }
   }
 
   private initializePortfolioFilter(): void {

@@ -1,10 +1,9 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Footer } from "../footer/footer";
 import { ContactSection } from "../contact/contact-section";
 import { Project, ProjectService } from '../services/project.service';
-import { isPlatformBrowser } from '@angular/common';
 import { Header } from "../header/header";
 
 interface DetailedProject extends Project {
@@ -20,12 +19,17 @@ interface DetailedProject extends Project {
   templateUrl: './portflio-details.html',
   styleUrls: ['./portflio-details.css']
 })
-export class PortflioDetails implements OnInit {
+export class PortflioDetails implements OnInit, OnDestroy {
   serviceId: number | null = null;
   service: DetailedProject | undefined;
   previousProject: Project | undefined;
   nextProject: Project | undefined;
   currentImageIndex = 0;
+  autoPlayPaused = false;
+  autoPlayInterval = 5000;
+  animKey = 0;
+  private autoPlayTimer: ReturnType<typeof setInterval> | null = null;
+  private isBrowser: boolean;
 
   private readonly metadata: Record<number, Pick<DetailedProject, 'client' | 'date' | 'developer' | 'images'>> = {
     1: {
@@ -137,7 +141,9 @@ export class PortflioDetails implements OnInit {
     private router: Router,
     private projectService: ProjectService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -159,6 +165,7 @@ export class PortflioDetails implements OnInit {
           images: metadata.images.length ? metadata.images : [project.image],
         };
         this.currentImageIndex = 0;
+        this.startAutoPlay();
 
         const projects = this.projectService.getAllProjects();
         const currentIndex = projects.findIndex(item => item.id === project.id);
@@ -183,44 +190,72 @@ export class PortflioDetails implements OnInit {
     return (this.service?.images.length ?? 0) > 1;
   }
 
-  get carouselImages(): string[] {
-    const images = this.service?.images ?? [];
-
-    if (images.length < 2) {
-      return images;
-    }
-
-    return images.map((_, index) => images[(this.currentImageIndex + index) % images.length]);
-  }
-
   previousImage(): void {
-    const imagesCount = this.service?.images.length ?? 0;
-
-    if (imagesCount < 2) {
-      return;
-    }
-
-    this.currentImageIndex = (this.currentImageIndex - 1 + imagesCount) % imagesCount;
+    const count = this.service?.images.length ?? 0;
+    if (count < 2) return;
+    this.currentImageIndex = (this.currentImageIndex - 1 + count) % count;
+    this.animKey++;
+    this.resetAutoPlay();
   }
 
   nextImage(): void {
-    const imagesCount = this.service?.images.length ?? 0;
-
-    if (imagesCount < 2) {
-      return;
-    }
-
-    this.currentImageIndex = (this.currentImageIndex + 1) % imagesCount;
+    const count = this.service?.images.length ?? 0;
+    if (count < 2) return;
+    this.currentImageIndex = (this.currentImageIndex + 1) % count;
+    this.animKey++;
+    this.resetAutoPlay();
   }
 
   selectImage(index: number): void {
-    const imagesCount = this.service?.images.length ?? 0;
-
-    if (index < 0 || index >= imagesCount) {
-      return;
-    }
-
+    const count = this.service?.images.length ?? 0;
+    if (index < 0 || index >= count) return;
     this.currentImageIndex = index;
+    this.animKey++;
+    this.resetAutoPlay();
+  }
+
+  onKeydown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowLeft') {
+      this.previousImage();
+      event.preventDefault();
+    } else if (event.key === 'ArrowRight') {
+      this.nextImage();
+      event.preventDefault();
+    }
+  }
+
+  pauseAutoPlay(): void {
+    this.autoPlayPaused = true;
+  }
+
+  resumeAutoPlay(): void {
+    this.autoPlayPaused = false;
+  }
+
+  private startAutoPlay(): void {
+    this.stopAutoPlay();
+    if (!this.isBrowser || !this.hasMultipleImages) return;
+    this.autoPlayTimer = setInterval(() => {
+      if (!this.autoPlayPaused) {
+        this.nextImage();
+      }
+    }, this.autoPlayInterval);
+  }
+
+  private stopAutoPlay(): void {
+    if (this.autoPlayTimer !== null) {
+      clearInterval(this.autoPlayTimer);
+      this.autoPlayTimer = null;
+    }
+  }
+
+  private resetAutoPlay(): void {
+    this.stopAutoPlay();
+    this.startAutoPlay();
+  }
+
+  ngOnDestroy(): void {
+    this.stopAutoPlay();
   }
 
   trackImage(index: number, image: string): string {
