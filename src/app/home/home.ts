@@ -94,7 +94,7 @@ export class Home implements AfterViewInit, OnDestroy {
 
     window.setTimeout(() => {
       this.initializeHomeLayout();
-      this.initializeCounters();
+      this.initializeWOW();
     }, 0);
   }
 
@@ -115,20 +115,7 @@ export class Home implements AfterViewInit, OnDestroy {
     this.initializeServiceHoverBackground();
   }
 
-  private initializeCounters(): void {
-    const $ = window.jQuery || window.$;
-    if (!$) return;
-
-    const odometers = $('.funfact-item .odometer');
-    if (!odometers.length) return;
-
-    odometers.each(function (this: HTMLElement) {
-      const count = $(this).attr('data-count');
-      if (count) {
-        $(this).html(count);
-      }
-    });
-
+  private initializeWOW(): void {
     if (window.WOW) {
       new window.WOW({ live: false }).init();
     }
