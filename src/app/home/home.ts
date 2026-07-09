@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { Header } from "../header/header";
@@ -21,7 +21,13 @@ declare const window: Window & {
   styleUrls: ['./home.css']
 })
 export class Home implements AfterViewInit, OnDestroy {
+  @ViewChild('yearsCounter') private yearsCounter?: ElementRef<HTMLElement>;
+  @ViewChild('projectsCounter') private projectsCounter?: ElementRef<HTMLElement>;
+
   projects: Project[] = [];
+  private funFactObserver?: IntersectionObserver;
+  private funFactFrameIds: number[] = [];
+  private funFactsAnimated = false;
   skills = [
     { name: 'Angular', category: 'Frontend', icon: 'img/icons/angular.png' },
     { name: 'Spring Boot', category: 'Backend', icon: 'img/icons/spring.png' },
@@ -95,6 +101,7 @@ export class Home implements AfterViewInit, OnDestroy {
     window.setTimeout(() => {
       this.initializeHomeLayout();
       this.initializeWOW();
+      this.initializeFunFactCounters();
     }, 0);
   }
 
@@ -103,6 +110,8 @@ export class Home implements AfterViewInit, OnDestroy {
       return;
     }
 
+    this.funFactObserver?.disconnect();
+    this.funFactFrameIds.forEach(frameId => window.cancelAnimationFrame(frameId));
     this.destroyHomeLayout();
   }
 
@@ -194,6 +203,69 @@ export class Home implements AfterViewInit, OnDestroy {
       .on('mouseleave.homeServices', () => moveBackground(currentItem));
 
     moveBackground(currentItem);
+  }
+
+  private initializeFunFactCounters(): void {
+    const counters = [
+      { element: this.yearsCounter?.nativeElement, value: 5 },
+      { element: this.projectsCounter?.nativeElement, value: 14 },
+    ].filter((counter): counter is { element: HTMLElement; value: number } => Boolean(counter.element));
+
+    if (!counters.length || this.funFactsAnimated) {
+      return;
+    }
+
+    const animateAllCounters = () => {
+      if (this.funFactsAnimated) {
+        return;
+      }
+
+      this.funFactsAnimated = true;
+      counters.forEach(counter => this.animateCounter(counter.element, counter.value));
+      this.funFactObserver?.disconnect();
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      animateAllCounters();
+      return;
+    }
+
+    this.funFactObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        animateAllCounters();
+      }
+    }, { threshold: 0.35 });
+
+    const funFactSection = counters[0].element.closest('.funfact-area');
+    if (funFactSection) {
+      this.funFactObserver.observe(funFactSection);
+      return;
+    }
+
+    animateAllCounters();
+  }
+
+  private animateCounter(element: HTMLElement, endValue: number): void {
+    const startValue = 0;
+    const duration = 1100;
+    const startTime = performance.now();
+
+    const step = (timestamp: number) => {
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.round(startValue + (endValue - startValue) * easedProgress);
+
+      element.textContent = `${currentValue}`;
+
+      if (progress < 1) {
+        const frameId = window.requestAnimationFrame(step);
+        this.funFactFrameIds.push(frameId);
+      }
+    };
+
+    element.textContent = '0';
+    const frameId = window.requestAnimationFrame(step);
+    this.funFactFrameIds.push(frameId);
   }
 
   private destroyHomeLayout(): void {
