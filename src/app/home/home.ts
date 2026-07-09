@@ -23,6 +23,8 @@ declare const window: Window & {
 export class Home implements AfterViewInit, OnDestroy {
   @ViewChild('yearsCounter') private yearsCounter?: ElementRef<HTMLElement>;
   @ViewChild('projectsCounter') private projectsCounter?: ElementRef<HTMLElement>;
+  @ViewChild('internshipsCounter') private internshipsCounter?: ElementRef<HTMLElement>;
+  @ViewChild('domainsCounter') private domainsCounter?: ElementRef<HTMLElement>;
 
   projects: Project[] = [];
   private funFactObserver?: IntersectionObserver;
@@ -209,6 +211,8 @@ export class Home implements AfterViewInit, OnDestroy {
     const counters = [
       { element: this.yearsCounter?.nativeElement, value: 5 },
       { element: this.projectsCounter?.nativeElement, value: 14 },
+      {element: this.internshipsCounter?.nativeElement, value: 5},
+      {element: this.domainsCounter?.nativeElement, value: 8}
     ].filter((counter): counter is { element: HTMLElement; value: number } => Boolean(counter.element));
 
     if (!counters.length || this.funFactsAnimated) {
