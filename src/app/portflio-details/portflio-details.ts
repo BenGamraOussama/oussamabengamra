@@ -36,7 +36,7 @@ export class PortflioDetails implements OnInit, OnDestroy {
       client: 'ESPRIT',
       date: 'Jan 2026 - May 2026',
       developer: 'Oussama Ben Gamra',
-      images: ['img/portfolio/pathmyway/thumb.png'],
+      images: ['img/portfolio/pathmyway/1.png', 'img/portfolio/pathmyway/2.png', 'img/portfolio/pathmyway/3.png', 'img/portfolio/pathmyway/4.png', 'img/portfolio/pathmyway/5.png', 'img/portfolio/pathmyway/6.png', 'img/portfolio/pathmyway/7.png', 'img/portfolio/pathmyway/8.png', 'img/portfolio/pathmyway/9.png'],
     },
     2: {
       client: 'ESPRIT',
@@ -45,16 +45,27 @@ export class PortflioDetails implements OnInit, OnDestroy {
       images: ['img/portfolio/maratech/1.png', 'img/portfolio/maratech/2.png', 'img/portfolio/maratech/3.png', 'img/portfolio/maratech/4.png', 'img/portfolio/maratech/5.png', 'img/portfolio/maratech/6.png'],
     },
     3: {
-      client: 'ACTIA Engineering Services',
-      date: 'Jun 2025 - Aug 2025',
+      client: 'ESPRIT',
+      date: '2025 - 2026',
       developer: 'Oussama Ben Gamra',
-      images: ['img/portfolio/can-anomaly/thumb.png'],
+      images: [
+        'img/portfolio/meraki/1.png',
+        'img/portfolio/meraki/2.png',
+        'img/portfolio/meraki/3.png',
+        'img/portfolio/meraki/4.png',
+        'img/portfolio/meraki/5.png',
+        'img/portfolio/meraki/6.png',
+        'img/portfolio/meraki/7.png',
+        'img/portfolio/meraki/8.png',
+        'img/portfolio/meraki/9.png',
+        'img/portfolio/meraki/10.png',
+      ],
     },
     4: {
       client: 'ESPRIT',
-      date: 'Jan 2026 - May 2026',
+      date: 'Academic project',
       developer: 'Oussama Ben Gamra',
-      images: ['img/portfolio/onfaitou/thumb.png'],
+      images: ['img/portfolio/olympic-bi/1.png', 'img/portfolio/olympic-bi/2.png', 'img/portfolio/olympic-bi/3.png', 'img/portfolio/olympic-bi/4.png', 'img/portfolio/olympic-bi/5.png', 'img/portfolio/olympic-bi/6.png'],
     },
     5: {
       client: 'DSIGNET',
@@ -106,9 +117,9 @@ export class PortflioDetails implements OnInit, OnDestroy {
     },
     11: {
       client: 'ESPRIT',
-      date: 'Academic project',
+      date: 'Jan 2026 - May 2026',
       developer: 'Oussama Ben Gamra',
-      images: ['img/portfolio/olympic-bi/thumb.png'],
+      images: ['img/portfolio/onfaitou/thumb.png'],
     },
     12: {
       client: 'ESPRIT',
@@ -133,7 +144,12 @@ export class PortflioDetails implements OnInit, OnDestroy {
       developer: 'Oussama Ben Gamra',
       images: ['img/portfolio/foyer/thumb.png'],
     },
-    
+    15: {
+      client: 'ACTIA Engineering Services',
+      date: 'Jun 2025 - Aug 2025',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/portfolio/can-anomaly/thumb.png'],
+    },
   };
 
   constructor(

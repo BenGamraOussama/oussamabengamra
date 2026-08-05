@@ -210,7 +210,7 @@ export class Home implements AfterViewInit, OnDestroy {
   private initializeFunFactCounters(): void {
     const counters = [
       { element: this.yearsCounter?.nativeElement, value: 5 },
-      { element: this.projectsCounter?.nativeElement, value: 14 },
+      { element: this.projectsCounter?.nativeElement, value: 15 },
       {element: this.internshipsCounter?.nativeElement, value: 5},
       {element: this.domainsCounter?.nativeElement, value: 8}
     ].filter((counter): counter is { element: HTMLElement; value: number } => Boolean(counter.element));

@@ -24,7 +24,7 @@ export class ProjectService {
       title: 'PathMyWay',
       description: 'Smart career and training platform built with microservices, recommendations, and analytics.',
       category: 'Web-app ai',
-      image: 'img/portfolio/pathmyway/thumb.png',
+      image: 'img/portfolio/pathmyway/1.png',
       technologies: ['Angular', 'Spring Boot', 'Microservices', 'Keycloak', 'Eureka', 'Docker', 'CI/CD'],
       fullDescription: 'PathMyWay is an intelligent career guidance and training management platform. It combines a Spring Boot microservices architecture, Angular frontend, secure authentication with Keycloak, service discovery with Eureka, profile-based recommendations, Docker integration, CI/CD, and analytics dashboards.',
       features: [
@@ -54,35 +54,37 @@ export class ProjectService {
     },
     {
       id: 3,
-      title: 'CAN Anomaly Detection',
-      description: 'Embedded AI system for detecting anomalies on automotive CAN network data.',
-      category: 'AI',
-      image: 'img/portfolio/can-anomaly/thumb.png',
-      technologies: ['Python', 'Machine Learning', 'Flask', 'Random Forest', 'XGBoost', 'Optuna'],
-      fullDescription: 'An intelligent anomaly detection system for automotive CAN network data, developed during a software engineering and embedded AI internship. The solution includes real-time CAN data analysis, preprocessing pipelines, model comparison, hyperparameter optimization, a Flask REST API, and a web supervision interface.',
+      title: 'Meraki',
+      description: 'AI-powered e-learning platform for manual and artisanal skills with intelligent gesture feedback.',
+      category: 'Web-app ai',
+      image: 'img/portfolio/meraki/1.png',
+      technologies: ['Artificial Intelligence', 'Machine Learning', 'Gesture Analysis', 'Web & Mobile', 'E-Learning', 'Freemium Model'],
+      fullDescription: 'Meraki is an innovative e-learning platform dedicated to manual and artisanal skills. It enables distance learning with intelligent, instant and personalized feedback, using artificial intelligence to analyze gestures and guide learners. The project covers a full market study (SWOT, segmentation, targeting and positioning), the 4P marketing mix, a complete financial study (cost price, selling price, projected revenue and break-even point), and alignment with the Sustainable Development Goals, positioning the platform as the first Tunisian solution valorizing craftsmanship and cultural heritage.',
       features: [
-        'Real-time CAN data analysis',
-        'Automotive dataset cleaning and transformation',
-        'Random Forest and XGBoost model comparison',
-        'Optimization with GridSearchCV and Optuna',
-        'REST API built with Flask',
-        'Web interface for supervision and testing'
+        'AI gesture analysis module with instant personalized feedback',
+        'Artisanal video courses (pottery, calligraphy, weaving...)',
+        'Distance learning with real-time guidance',
+        'Badges and certifications',
+        'Freemium model with premium subscriptions and referral program',
+        'B2B offer for artisan partners',
+        'Market study: SWOT, segmentation, targeting and positioning',
+        'Financial study: cost, price, revenue and break-even analysis'
       ],
     },
     {
       id: 4,
-      title: 'OnFaitOu',
-      description: 'Community platform for event management and social interactions.',
-      category: 'Web-app',
-      image: 'img/portfolio/onfaitou/thumb.png',
-      technologies: ['Spring Boot', 'Angular', 'REST API', 'SQL'],
-      fullDescription: 'OnFaitOu is a community event and social platform focused on managing users, events, and interactions. The project includes backend REST services, frontend screens for event discovery and management, and core social features.',
+      title: 'Power BI Olympic Analytics',
+      description: 'Interactive Power BI dashboard for Tokyo 2021 Olympic performance analytics.',
+      category: 'Data',
+      image: 'img/portfolio/olympic-bi/1.png',
+      technologies: ['Power BI', 'DAX', 'Data Visualization', 'KPI'],
+      fullDescription: 'Power BI Olympic Analytics is a dashboard project analyzing Tokyo 2021 Olympic data. It focuses on athlete participation, performance trends, gender parity, advanced DAX KPIs, and professional interactive visualizations.',
       features: [
-        'Event creation and management',
-        'User and community management',
-        'Social interaction features',
-        'REST API design',
-        'Responsive frontend experience'
+        'Interactive Olympic analytics dashboards',
+        'Athlete performance analysis',
+        'Participation and gender parity metrics',
+        'Advanced DAX KPIs',
+        'Professional data visualizations'
       ],
     },
     {
@@ -190,18 +192,18 @@ export class ProjectService {
     },
     {
       id: 11,
-      title: 'Power BI Olympic Analytics',
-      description: 'Interactive Power BI dashboard for Tokyo 2021 Olympic performance analytics.',
-      category: 'Data',
-      image: 'img/portfolio/olympic-bi/thumb.png',
-      technologies: ['Power BI', 'DAX', 'Data Visualization', 'KPI'],
-      fullDescription: 'Power BI Olympic Analytics is a dashboard project analyzing Tokyo 2021 Olympic data. It focuses on athlete participation, performance trends, gender parity, advanced DAX KPIs, and professional interactive visualizations.',
+      title: 'OnFaitOu',
+      description: 'Community platform for event management and social interactions.',
+      category: 'Web-app',
+      image: 'img/portfolio/onfaitou/thumb.png',
+      technologies: ['Spring Boot', 'Angular', 'REST API', 'SQL'],
+      fullDescription: 'OnFaitOu is a community event and social platform focused on managing users, events, and interactions. The project includes backend REST services, frontend screens for event discovery and management, and core social features.',
       features: [
-        'Interactive Olympic analytics dashboards',
-        'Athlete performance analysis',
-        'Participation and gender parity metrics',
-        'Advanced DAX KPIs',
-        'Professional data visualizations'
+        'Event creation and management',
+        'User and community management',
+        'Social interaction features',
+        'REST API design',
+        'Responsive frontend experience'
       ],
     },
     {
@@ -256,7 +258,23 @@ export class ProjectService {
         'Object-oriented design'
       ],
     },
-    
+    {
+      id: 15,
+      title: 'CAN Anomaly Detection',
+      description: 'Embedded AI system for detecting anomalies on automotive CAN network data.',
+      category: 'AI',
+      image: 'img/portfolio/can-anomaly/thumb.png',
+      technologies: ['Python', 'Machine Learning', 'Flask', 'Random Forest', 'XGBoost', 'Optuna'],
+      fullDescription: 'An intelligent anomaly detection system for automotive CAN network data, developed during a software engineering and embedded AI internship. The solution includes real-time CAN data analysis, preprocessing pipelines, model comparison, hyperparameter optimization, a Flask REST API, and a web supervision interface.',
+      features: [
+        'Real-time CAN data analysis',
+        'Automotive dataset cleaning and transformation',
+        'Random Forest and XGBoost model comparison',
+        'Optimization with GridSearchCV and Optuna',
+        'REST API built with Flask',
+        'Web interface for supervision and testing'
+      ],
+    },
   ];
 
   constructor() { }
