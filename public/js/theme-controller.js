@@ -1,28 +1,25 @@
 const themeController = () => {
   const html = document.querySelector("html");
-  const isDark = html?.classList?.contains("dark");
-  if (isDark) {
+  if (!html) {
+    return;
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    html.classList.remove("dark");
+  } else if (savedTheme === "dark") {
     html.classList.add("dark");
   } else {
-    html.classList.remove("dark");
-  }
-
-  const currentMode = localStorage.getItem("theme");
-  if (currentMode === "light") {
-    html.classList.remove("dark");
-  } else if (currentMode === "light") {
     html.classList.add("dark");
   }
 
-  const themeControllerButton = document.querySelector(".theme-controller");
-
-  themeControllerButton.addEventListener("click", function () {
-    html.classList.toggle("dark");
-    const currentMode = html.classList.contains("dark");
-    if (currentMode) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest?.(".theme-controller");
+    if (!button) {
+      return;
     }
+
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
   });
 };

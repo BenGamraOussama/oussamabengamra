@@ -27,6 +27,7 @@
                         id="firstName" 
                         type="text" 
                         placeholder="First name *"
+                        aria-label="First name"
                         required
                         class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                     </div>
@@ -37,6 +38,7 @@
                         id="lastName" 
                         type="text" 
                         placeholder="Last name *"
+                        aria-label="Last name"
                         required
                         class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                     </div>
@@ -47,6 +49,7 @@
                         id="email" 
                         type="email" 
                         placeholder="Email address *"
+                        aria-label="Email address"
                         required
                         class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                     </div>
@@ -57,19 +60,20 @@
                         id="phone" 
                         type="tel" 
                         placeholder="Phone number"
+                        aria-label="Phone number"
                         class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                     </div>
                     <div class="form_group sm:col-start-1 sm:col-span-2">
                       <select 
                         name="service" 
                         id="service" 
+                        aria-label="Service"
                         class="tj-nice-select w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 text-white-color">
                         <option value="" disabled selected>Choose Service</option>
                         <option value="fullstack">Full-Stack Development</option>
-                        <option value="branding">Branding Design</option>
-                        <option value="web">Web Design</option>
-                        <option value="uxui">UI/UX Design</option>
-                        <option value="app">App Design</option>
+                        <option value="architecture">Architecture & Microservices</option>
+                        <option value="ai">AI, ML & Data Analytics</option>
+                        <option value="devops">DevOps & Cloud Engineering</option>
                         <option value="other">Other</option>
                       </select>
                     </div>
@@ -80,6 +84,7 @@
                         cols="1" 
                         rows="10" 
                         placeholder="Message *"
+                        aria-label="Message"
                         required
                         class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"></textarea>
                     </div>
@@ -97,7 +102,7 @@
                           
                           // Validation simple
                           if (!firstName.trim() || !lastName.trim() || !email.trim() || !message.trim()) {
-                            alert('Veuillez remplir tous les champs obligatoires.');
+                            alert('Please fill in all required fields.');
                             return;
                           }
                           
@@ -124,7 +129,7 @@
                               service: service,
                               time: timeString
                             }, 'ifofOfoggt5NaV54l').then(result => {
-                              alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
+                              alert('✅ Your message has been sent successfully! I will get back to you as soon as possible.');
                               
                               // Réinitialiser le formulaire
                               document.getElementById('firstName').value = '';
@@ -139,7 +144,7 @@
                               this.innerHTML = '<span>Send Message</span>';
                               
                             }).catch(error => {
-                              alert('❌ Une erreur est survenue lors de l envoi. Veuillez réessayer.');
+                              alert('❌ An error occurred while sending your message. Please try again.');
                               
                               // Réactiver le bouton
                               this.disabled = false;
@@ -156,7 +161,7 @@
                               sendEmail();
                             };
                             script.onerror = () => {
-                              alert('❌ Erreur de chargement. Veuillez réessayer.');
+                              alert('❌ Failed to load the email service. Please try again.');
                               this.disabled = false;
                               this.innerHTML = '<span>Send Message</span>';
                             };

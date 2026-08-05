@@ -85,7 +85,7 @@
                           <p class="text-primary-color-light dark:text-white-color mb-15px md:mb-5">
                             <strong>Competences:</strong>
                           </p> 
-                          <ul class="grid gap-x-5 md:gap-x-30px grid-col1 sm:grid-cols-2">
+                          <ul class="grid gap-x-5 md:gap-x-30px grid-cols-1 sm:grid-cols-2">
                               <li *ngFor="let competences of service.competences"
                                 class="pl-25px mb-10px relative before:content-['\f00c'] before:font-fontawesome before:absolute before:left-0 before:top-0 before:text-primary-color before:font-bold">
                                 <span class="text-primary-color-light dark:text-white-color">
@@ -106,7 +106,7 @@
                               {{ service.description1 }}
                             </p>
 
-                            <ul class="grid gap-x-5 md:gap-x-30px grid-col1 sm:grid-cols-2">
+                            <ul class="grid gap-x-5 md:gap-x-30px grid-cols-1 sm:grid-cols-2">
                               <li *ngFor="let details of service.details"
                                 class="pl-25px mb-10px relative before:content-['\f00c'] before:font-fontawesome before:absolute before:left-0 before:top-0 before:text-primary-color before:font-bold">
                                 <span class="text-primary-color-light dark:text-white-color">
@@ -173,6 +173,7 @@
                           id="contactName"
                           name="name"
                           placeholder="Name *"
+                          aria-label="Name"
                           required
                           class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                       </div>
@@ -183,6 +184,7 @@
                           id="contactEmail"
                           name="email"
                           placeholder="Email *"
+                          aria-label="Email"
                           required
                           class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1" />
                       </div>
@@ -194,6 +196,7 @@
                           id="contactMessage"
                           name="message"
                           placeholder="Your Message *"
+                          aria-label="Your message"
                           required
                           class="text-white-color w-full px-5 py-14px border border-gray-color-3 bg-cream-light-color dark:bg-black-color focus:border-primary-color rounded-lg outline-none focus:outline-none transition-all duration-300 placeholder:text-gray-color leading-1"></textarea>
                       </div>
@@ -208,14 +211,14 @@
                             
                             // Validation simple
                             if (!name.trim() || !email.trim() || !message.trim()) {
-                              alert('Veuillez remplir tous les champs obligatoires.');
+                              alert('Please fill in all required fields.');
                               return;
                             }
                             
                             // Validation email
                             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                             if (!emailRegex.test(email)) {
-                              alert('Veuillez saisir une adresse email valide.');
+                              alert('Please enter a valid email address.');
                               return;
                             }
                             
@@ -237,12 +240,12 @@
                               window.emailjs.send('service_fwj1q64', 'template_iv7uowd', {
                                 name: name,
                                 from_email: email,
-                                message: message + '\n\n--- Message envoyé depuis la page Service Details ---',
+                                message: message + '\n\n--- Message sent from the Service Details page ---',
                                 phone: '',
                                 service: 'Contact depuis Service Details',
                                 time: timeString
                               }, 'ifofOfoggt5NaV54l').then(result => {
-                                alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
+                                alert('✅ Your message has been sent successfully! I will get back to you as soon as possible.');
                                 
                                 // Réinitialiser le formulaire
                                 document.getElementById('contactName').value = '';
@@ -254,7 +257,7 @@
                                 this.innerHTML = '<span>Send Message</span>';
                                 
                               }).catch(error => {
-                                alert('❌ Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+                                alert('❌ An error occurred while sending your message. Please try again.');
                                 
                                 // Réactiver le bouton
                                 this.disabled = false;
@@ -271,7 +274,7 @@
                                 sendEmail();
                               };
                               script.onerror = () => {
-                                alert('❌ Erreur de chargement. Veuillez réessayer.');
+                                alert('❌ Failed to load the email service. Please try again.');
                                 this.disabled = false;
                                 this.innerHTML = '<span>Send Message</span>';
                               };

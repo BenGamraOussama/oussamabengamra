@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router, ActivatedRoute } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 import { isPlatformBrowser } from '@angular/common';
@@ -30,6 +31,7 @@ export class Home implements AfterViewInit, OnDestroy {
   private funFactObserver?: IntersectionObserver;
   private funFactFrameIds: number[] = [];
   private funFactsAnimated = false;
+  private fragmentSubscription?: Subscription;
   skills = [
     { name: 'Angular', category: 'Frontend', icon: 'img/icons/angular.png' },
     { name: 'Spring Boot', category: 'Backend', icon: 'img/icons/spring.png' },
@@ -74,7 +76,6 @@ export class Home implements AfterViewInit, OnDestroy {
 
   constructor(
     private projectService: ProjectService,
-    private router: Router,
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
@@ -82,7 +83,7 @@ export class Home implements AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.projects = this.projectService.getAllProjects();
     if (isPlatformBrowser(this.platformId)) {
-      this.route.fragment.subscribe(fragment => {
+      this.fragmentSubscription = this.route.fragment.subscribe(fragment => {
         if (fragment) {
           setTimeout(() => {
             const el = document.getElementById(fragment);
@@ -112,13 +113,10 @@ export class Home implements AfterViewInit, OnDestroy {
       return;
     }
 
+    this.fragmentSubscription?.unsubscribe();
     this.funFactObserver?.disconnect();
     this.funFactFrameIds.forEach(frameId => window.cancelAnimationFrame(frameId));
     this.destroyHomeLayout();
-  }
-
-  navigateToPortfolioDetails(id: number): void {
-    this.router.navigate(['/portflio-details', id]);
   }
 
   private initializeHomeLayout(): void {
