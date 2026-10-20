@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { PortflioDetails } from './portflio-details';
+import { PortfolioDetails } from './portfolio-details';
 
-describe('PortflioDetails', () => {
-  let component: PortflioDetails;
-  let fixture: ComponentFixture<PortflioDetails>;
+describe('PortfolioDetails', () => {
+  let component: PortfolioDetails;
+  let fixture: ComponentFixture<PortfolioDetails>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PortflioDetails],
+      imports: [PortfolioDetails],
       providers: [provideZonelessChangeDetection(), provideRouter([])]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PortflioDetails);
+    fixture = TestBed.createComponent(PortfolioDetails);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

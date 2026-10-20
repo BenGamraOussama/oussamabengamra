@@ -1,5 +1,5 @@
 {
-  "name": "portflio",
+  "name": "portfolio",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "build:static": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:portflio": "node dist/portflio/server/server.mjs"
+    "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs"
   },
   "prettier": {
     "overrides": [

@@ -14,12 +14,12 @@ interface DetailedProject extends Project {
 }
 
 @Component({
-  selector: 'app-portflio-details',
+  selector: 'app-portfolio-details',
   imports: [Header, Footer, CommonModule, ContactSection, RouterModule],
-  templateUrl: './portflio-details.html',
-  styleUrls: ['./portflio-details.css']
+  templateUrl: './portfolio-details.html',
+  styleUrls: ['./portfolio-details.css']
 })
-export class PortflioDetails implements OnInit, OnDestroy {
+export class PortfolioDetails implements OnInit, OnDestroy {
   serviceId: number | null = null;
   service: DetailedProject | undefined;
   previousProject: Project | undefined;
@@ -32,6 +32,12 @@ export class PortflioDetails implements OnInit, OnDestroy {
   private isBrowser: boolean;
 
   private readonly metadata: Record<number, Pick<DetailedProject, 'client' | 'date' | 'developer' | 'images'>> = {
+    16: {
+      client: 'ACTIA Engineering Services',
+      date: 'Jul 2026 - Sep 2026',
+      developer: 'Oussama Ben Gamra',
+      images: ['img/services/ai.jpeg'],
+    },
     1: {
       client: 'ESPRIT',
       date: 'Jan 2026 - May 2026',

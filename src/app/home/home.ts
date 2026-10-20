@@ -32,14 +32,15 @@ export class Home implements AfterViewInit, OnDestroy {
   private funFactFrameIds: number[] = [];
   private funFactsAnimated = false;
   private fragmentSubscription?: Subscription;
-  skills = [
+  skills: Array<{ name: string; category: string; icon?: string; initials?: string }> = [
     { name: 'Angular', category: 'Frontend', icon: 'img/icons/angular.png' },
     { name: 'Spring Boot', category: 'Backend', icon: 'img/icons/spring.png' },
+    { name: 'FastAPI', category: 'Backend', initials: 'API' },
     { name: 'Microservices', category: 'Architecture', icon: 'img/icons/microservices.png' },
     { name: 'Keycloak', category: 'Security', icon: 'img/icons/keycloak.png' },
     { name: 'Docker', category: 'DevOps', icon: 'img/icons/docker.png' },
     { name: 'Kubernetes', category: 'DevOps', icon: 'img/icons/kubernetes.png' },
-    { name: 'Python & ML', category: 'AI', icon: 'img/icons/ai.png' },
+    { name: 'RAG & NLP', category: 'AI', icon: 'img/icons/ai.png' },
     { name: 'Power BI', category: 'Data', icon: 'img/icons/powerbi.png' },
     { name: 'React Native', category: 'Mobile', icon: 'img/icons/react.png' },
     { name: 'Node.js', category: 'Backend', icon: 'img/icons/node.png' },
@@ -50,7 +51,7 @@ export class Home implements AfterViewInit, OnDestroy {
   skillGroups = [
     {
       title: 'Languages',
-      items: 'Java, Python, JavaScript, TypeScript, PHP, SQL, C#'
+      items: 'Java, Python, JavaScript, TypeScript, SQL'
     },
     {
       title: 'Frontend & Mobile',
@@ -58,7 +59,7 @@ export class Home implements AfterViewInit, OnDestroy {
     },
     {
       title: 'Backend & Security',
-      items: 'Spring Boot, Node.js, Express.js, Symfony, Flask, Keycloak, secure API design'
+      items: 'Spring Boot, FastAPI, Node.js, Express.js, Symfony, Flask, Keycloak, secure API design'
     },
     {
       title: 'Architecture',
@@ -70,7 +71,7 @@ export class Home implements AfterViewInit, OnDestroy {
     },
     {
       title: 'Data & AI',
-      items: 'Power BI, DAX, machine learning, XGBoost, Random Forest, analytics dashboards'
+      items: 'Machine learning, NLP, RAG, Llama 3, Ollama, Random Forest, XGBoost, Power BI, DAX'
     },
   ];
 
@@ -207,10 +208,10 @@ export class Home implements AfterViewInit, OnDestroy {
 
   private initializeFunFactCounters(): void {
     const counters = [
-      { element: this.yearsCounter?.nativeElement, value: 5 },
-      { element: this.projectsCounter?.nativeElement, value: 15 },
-      {element: this.internshipsCounter?.nativeElement, value: 5},
-      {element: this.domainsCounter?.nativeElement, value: 8}
+      { element: this.yearsCounter?.nativeElement, value: 4 },
+      { element: this.projectsCounter?.nativeElement, value: 16 },
+      {element: this.internshipsCounter?.nativeElement, value: 4},
+      {element: this.domainsCounter?.nativeElement, value: 7}
     ].filter((counter): counter is { element: HTMLElement; value: number } => Boolean(counter.element));
 
     if (!counters.length || this.funFactsAnimated) {

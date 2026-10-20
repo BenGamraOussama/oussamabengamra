@@ -1,12 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 import { Home } from './home/home';
-import { PortflioDetails } from './portflio-details/portflio-details';
+import { PortfolioDetails } from './portfolio-details/portfolio-details';
 import { ServiceDetails } from './service-details/service-details';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'portflio-details/:id', component: PortflioDetails },
+  { path: 'portfolio-details/:id', component: PortfolioDetails },
+  { path: 'portflio-details/:id', redirectTo: 'portfolio-details/:id', pathMatch: 'full' },
   { path: 'service-details/:id', component: ServiceDetails },
 ];
 @NgModule({

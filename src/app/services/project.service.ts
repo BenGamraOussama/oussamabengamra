@@ -20,6 +20,23 @@ export class ProjectService {
   
   private projects: Project[] = [
     {
+      id: 16,
+      title: 'Patent AI Assistant',
+      description: 'RAG-based patent and innovation management platform built with React, TypeScript, FastAPI, NLP, and Llama 3.',
+      category: 'Web-app AI',
+      image: 'img/services/ai.jpeg',
+      technologies: ['React', 'TypeScript', 'FastAPI', 'NLP', 'RAG', 'Llama 3', 'Ollama'],
+      fullDescription: 'Patent AI Assistant is a web platform developed during a software engineering internship at ACTIA Engineering Services. It supports innovation and intellectual property workflows with semantic patent search, a RAG assistant, query generation, claims analysis and generation, and abstract or patent interpretation.',
+      features: [
+        'Semantic patent search using NLP and Llama 3',
+        'RAG assistant for patent and abstract interpretation',
+        'Search query generation for innovation workflows',
+        'Claims analysis and generation support',
+        'React and TypeScript frontend',
+        'FastAPI backend integration'
+      ],
+    },
+    {
       id: 1,
       title: 'PathMyWay',
       description: 'Smart career and training platform built with microservices, recommendations, and analytics.',

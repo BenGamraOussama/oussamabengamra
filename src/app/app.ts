@@ -10,7 +10,7 @@ import { Subscription, filter } from 'rxjs';
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit, OnDestroy {
-  protected title = 'portflio';
+  protected title = 'portfolio';
   private routerSubscription?: Subscription;
 
   constructor(

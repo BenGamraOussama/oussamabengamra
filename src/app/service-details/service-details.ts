@@ -73,12 +73,13 @@ export class ServiceDetails implements OnInit {
       image: 'img/services/ai.jpeg',
       icon: 'flaticon-web-design',
       title: 'AI, ML & Data Analytics',
-      description: 'I build intelligent features and analytical dashboards, from machine learning pipelines to Flask APIs, recommendation systems, anomaly detection and Power BI reporting.',
+      description: 'I build intelligent features and analytical dashboards, from RAG assistants and NLP workflows to machine learning pipelines, FastAPI/Flask APIs, anomaly detection and Power BI reporting.',
       competences: [
+        'AI engineering: RAG, NLP, Llama 3, Ollama, semantic search',
         'Machine Learning: Random Forest, XGBoost, classification, recommendation systems',
         'Optimization: GridSearchCV, Optuna, model comparison',
         'Data & BI: Power BI, DAX, KPI, data visualization',
-        'Deployment: Flask REST API and web supervision interfaces',
+        'Deployment: FastAPI, Flask REST API and web supervision interfaces',
       ],
       description1: 'AI and analytics projects are handled with measurable model and data quality:',
       details: [
